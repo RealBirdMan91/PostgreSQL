@@ -32,26 +32,27 @@ A single database can contain many different tables. For example, one table for 
 
 It is possible to link the different tables together. Like **Unicorns** and **Locations** in the example above.
 
-Eine Tabelle ist in **fields (columns)** und **records (rows)** unterteilt. Wichtig ist das einem record eine einzigartige id zugewiesen werden muss. Das ist wichtig um ihn später wieder identifizieren zu können.
+A table is divided into **fields (columns)** and **records (rows)**. It is important that a record must be assigned a unique id. This is important to be able to identify it later.
 
 ![Server](./images/server.png)
 
 ---
 
 ## What is SQL
-SQL ist die Sprache, welche benötigt wird um mit einer Relationalen Datenbank zu kommunizieren.
-In der Core Syntax unterscheidet man hier zwischen **Key Words** und **Identifiers**. Die **Key Words** werden von der sprache selbst vorgegeben. Die **Identifiers** ergeben sich aus den verschiedenen Feldern in einer Tabelle. 
+SQL is the language that is required to communicate with a relational database.
+In the core syntax, a distinction is made between **Key Words** and **Identifiers**. The **Key Words** are specified by the language itself. The **Identifiers** result from the various fields in a table. 
 
 ![Syntax](./images/syntax.jpg)
 
 Syntax Regeln:
-1. SQL-Anweisungen müssen mit einem Semikolon enden (wenn mehrere Anweisungen im selben Befehl enthalten sind).
-2. Bei SQL-Anweisungen wird die Groß- und Kleinschreibung nicht berücksichtigt. Das bedeutet, dass FROM dasselbe ist wie from (zur besseren Identifizierung der Schlüsselwörter sollten sie dennoch groß geschrieben werden).
-3. Bezeichner können mit doppelten Anführungszeichen umgeben werden, um Konflikte mit eingebauten Schlüsselwörtern zu vermeiden.
+Syntax rules:
+1. SQL statements must end with a semicolon (if multiple statements are included in the same command).
+2. SQL statements are case-insensitive. This means that FROM is the same as from (for better identification of keywords, they should still be capitalized).
+3. identifiers can be surrounded with double quotes to avoid conflicts with built-in keywords.
 ---
 ## Data Definition
 
-Bei der Arbeit mit Datenbanken und Tabellen sind die folgenden Schlüsselwörter wichtig.
+When working with databases and tables, the following keywords are important.
 
 - **CREATE** is needed to create a database or table.
 - **ALTER** is needed to update an existing database or table.
@@ -63,7 +64,7 @@ CREATE DATABASE cornify;
 ___
 
 ## Data Types
-Daten Typen werden benötigt um anzugeben, welcher Wert in das Feld einer Tabelle eingetragen werden darf.
+Data types are needed to specify which value may be entered into the field of a table.
 
 > Data types can differ depending on the RDBMS. In this chapter, the most common data types are discussed. Special data types for PostgreSQL can be looked up [here](https://www.postgresql.org/docs/current/datatype.html), for example.
 
