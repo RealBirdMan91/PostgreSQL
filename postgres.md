@@ -175,5 +175,6 @@ ALTER TABLE clans RENAME COLUMN yearly_salary TO yearly_revenue;
 ```
 
 > **ALTER TABLE** allows you to run multiple updating operations together. You can, for example update two fields in one ALTER TABLE statement.
-
 ---
+
+
