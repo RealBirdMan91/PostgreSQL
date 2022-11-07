@@ -1,6 +1,6 @@
 # SQL
 
-- [What is RDBMS](#what-is-rdbms)
+- [What is a RDBM](#what-is-a-rdbm)
 - [What is SQL](#what-is-sql)
 - [Data Definition](#data-definition)
 - [Data Types](#data-types)
@@ -13,7 +13,7 @@
 
 ---
 
-## What is RDBMS
+## What is a RDBM
 
 RDBMS stands for **Relational Database Management System**. In this, data can be stored in a tabular structure. The best-known RDBMS are, for example, **MySQL** or **PostgreSQL**.
 
