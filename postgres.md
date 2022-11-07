@@ -8,6 +8,8 @@
 - [Querying Data](#querying-data)
 - [Updating Data](#updating-data)
 - [NULL](#null)
+- [CHECK Constraint](#check-constraint)
+- [Unique Values and Identifiers](#unique-values-and-identifiers)
 
 ---
 
@@ -241,3 +243,24 @@ Update all existing tables (unicorns, clans, conversations) and give a **NOT NUL
 
 The solution of the task can be taken [here](./sql/10-update-not-null.sql).
 ___
+
+## CHECK Constraint
+The NOT NULL constraint ensures that a value must be filled in for a respective field. But what happens if a NULL value is allowed. Like for example the salary field in the Unicorns table. If this value is not NULL it should be ensured that the entered value is greater than 0. 
+
+This can be ensured with the **CHECK** constraint.
+In round brackets after CHECK you can specify which values are accepted.
+```SQL
+CREATE TABLE unicorns(
+    id serial PRIMARY KEY,
+    unicorn_name VARCHAR(200) NOT NULL,
+    salary INT DEFAULT NULL CHECK (salary > 1000),
+    unicorn_type unicorn_status
+);
+```
+To add a Constaraint to an existing field, the procedure is a little different. With the keywords **ADD CONSTRAINT** a new constraint can be created. This will be assigned a name of your choice. The constraint is not directly assigned to a field but results from the filter.
+```SQL
+ALTER TABLE unicorns
+ADD CONSTRAINT salary_range CHECK (salary > 1000 AND salary < 100000);
+```
+___
+## Unique Values and Identifiers
