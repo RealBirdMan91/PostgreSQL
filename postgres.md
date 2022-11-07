@@ -220,3 +220,24 @@ However, if a 0 was entered as the value, the record would be included in the ca
 | 2   | Lazycorn     | 7000   |            2 |
 | 3   | Strangecorn  | NULL   |            1 |
 
+With a value of **NULL** the average can now be calculated correctly and requested via the **AVG** function.
+```SQL
+SELECT AVG(salary) FROM unicorns;
+```
+
+**NOT NULL**
+In some cases, it should not be allowed that no value is entered for a field. This can be achieved with the keywords **NOT NULL**. The example below shows a table in which the fields must be filled in.
+```SQL
+CREATE TABLE unicorns(
+    id serial PRIMARY KEY,
+    unicorn_name VARCHAR(200) NOT NULL,
+    salary INT DEFAULT NULL,
+    unicorn_type unicorn_status
+);
+```
+___
+## Time to Practice:
+Update all existing tables (unicorns, clans, conversations) and give a **NOT NULL** "CONSTRAINT" at needed position. All fields where a **NULL** value is useful should be changed so that the default value is **NULL**.
+
+The solution of the task can be taken [here](./sql/10-update-not-null.sql).
+___

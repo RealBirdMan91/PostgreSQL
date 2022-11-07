@@ -1,0 +1,21 @@
+ALTER TABLE clans
+ALTER COLUMN clan_name
+SET NOT NULL,
+    ALTER COLUMN clan_adress
+SET NOT NULL,
+    ALTER COLUMN yearly_revenue
+SET DEFAULT NULL;
+
+ALTER TABLE unicorns
+ALTER COLUMN unicorn_name
+SET NOT NULL,
+    ALTER COLUMN salary
+SET DEFAULT NULL;
+
+ALTER TABLE conversations
+ALTER COLUMN unicorn_name
+SET NOT NULL,
+    ALTER COLUMN clan_name
+SET NOT NULL,
+    ALTER COLUMN message
+SET NOT NULL;
