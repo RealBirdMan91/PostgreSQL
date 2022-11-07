@@ -6,6 +6,7 @@
 - [Data Types](#data-types)
 - [Insert Data](#insert-data)
 - [Querying Data](#querying-data)
+- [Updating Data](#updating-data)
 ---
 
 ## What is RDBMS
@@ -158,3 +159,21 @@ How to create a record can be seen in the example above.
 > It is important to ensure that the values take into account the correct data type of the respective field. A string as value should always be written in single quotes.
 
 ___
+
+## Updating Data
+The keyword **ALTER** is needed to update a table or a field.
+All possibilities to update a field or table can be looked up [here](https://www.postgresql.org/docs/current/sql-altertable.html).
+
+In the example below, the data type for yearly_salary has been changed to **REAL** in the clans table. 
+Likewise, the field yearly_salary has been renamed to yearly_revenue.
+
+```SQL
+ALTER TABLE clans 
+ALTER yearly_salary SET DATA TYPE REAL;
+
+ALTER TABLE clans RENAME COLUMN yearly_salary TO yearly_revenue;
+```
+
+> **ALTER TABLE** allows you to run multiple updating operations together. You can, for example update two fields in one ALTER TABLE statement.
+
+---

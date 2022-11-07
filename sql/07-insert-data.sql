@@ -1,11 +1,11 @@
---INSERT INTO clans (clan_name, clan_adress, yearly_salary, is_searching_unicorns ) 
---VALUES ('BOB the Unicorns', 'shiny World', 9000.22, true);
---
---INSERT INTO clans (clan_name, clan_adress, yearly_salary, is_searching_unicorns ) 
---VALUES ('World of Corns', 'War Zone 13', 5000.99, false);
---
---INSERT INTO clans (clan_name, clan_adress, yearly_salary, is_searching_unicorns ) 
---VALUES ('Rainbow Shower', 'Colorfull Madness', 7000.30, true);
+INSERT INTO clans (clan_name, clan_adress, yearly_salary, is_searching_unicorns ) 
+VALUES ('BOB the Unicorns', 'shiny World', 9000.22, true);
+
+INSERT INTO clans (clan_name, clan_adress, yearly_salary, is_searching_unicorns ) 
+VALUES ('World of Corns', 'War Zone 13', 5000.99, false);
+
+INSERT INTO clans (clan_name, clan_adress, yearly_salary, is_searching_unicorns ) 
+VALUES ('Rainbow Shower', 'Colorfull Madness', 7000.30, true);
 
 INSERT INTO conversations (clan_name, unicorn_name, message, timestamp ) 
 VALUES ('Rainbow Shower', 'Lazyhorn', 'hey mates...., how about sleeping time?', '2022-08-15 16:33:10');
