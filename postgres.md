@@ -1,6 +1,6 @@
 # SQL
 
-- [What is a RDBM](#what-is-a-rdbm)
+- [What is a RDBMS](#what-is-a-rdbms)
 - [What is SQL](#what-is-sql)
 - [Data Definition](#data-definition)
 - [Data Types](#data-types)
@@ -10,10 +10,11 @@
 - [NULL](#null)
 - [CHECK Constraint](#check-constraint)
 - [Unique Values and Identifiers](#unique-values-and-identifiers)
+- [The Primary Key](#the-primary-key)
 
 ---
 
-## What is a RDBM
+## What is a RDBMS
 
 RDBMS stands for **Relational Database Management System**. In this, data can be stored in a tabular structure. The best-known RDBMS are, for example, **MySQL** or **PostgreSQL**.
 
@@ -245,7 +246,7 @@ The solution of the task can be taken [here](./sql/10-update-not-null.sql).
 ___
 
 ## CHECK Constraint
-The NOT NULL constraint ensures that a value must be filled in for a respective field. But what happens if a NULL value is allowed. Like for example the salary field in the Unicorns table. If this value is not NULL it should be ensured that the entered value is greater than 0. 
+The NOT NULL constraint ensures that a value must be entered for a specific field. But what happens if a NULL value is allowed. Like for example the field Salary in the table Unicorns. Here we want to check if the value is greater than 0. 
 
 This can be ensured with the **CHECK** constraint.
 In round brackets after CHECK you can specify which values are accepted.
@@ -264,3 +265,21 @@ ADD CONSTRAINT salary_range CHECK (salary > 1000 AND salary < 100000);
 ```
 ___
 ## Unique Values and Identifiers
+
+To ensure that a value is unique the constraint **Unique** can be used. This can be useful when assigning id's or email addresses.
+```SQL
+CREATE TABLE unicorns(
+    id SERIAL PRIMARY KEY,
+    unicorn_name VARCHAR(200) NOT NULL,
+    email: VARCHAR(200) NOT NULL UNIQUE,
+    salary INT DEFAULT NULL,
+    unicorn_type unicorn_status
+);
+```
+## The Primary Key
+
+The **PRIMARY KEY** is also a constraint that monitors that a value is unique. A **PRIMARY KEY** may only be assigned once per table.
+
+The **PRIMARY KEY** signals to the RDBMS that this field is the primary identifier.
+
+> When storing data, each data entry should have at least one unique value (for identifying the record).
