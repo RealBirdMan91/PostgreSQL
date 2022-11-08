@@ -11,6 +11,7 @@
 - [CHECK Constraint](#check-constraint)
 - [Unique Values and Identifiers](#unique-values-and-identifiers)
 - [The Primary Key](#the-primary-key)
+- [CRUD](#crud)
 
 ---
 
@@ -285,4 +286,20 @@ The **PRIMARY KEY** is also a constraint that monitors that a value is unique. A
 The **PRIMARY KEY** signals to the RDBMS that this field is the primary identifier.
 
 > When storing data, each data entry should have at least one unique value (for identifying the record).
+___
+## CRUD
+What are CRUD operations?  CRUD stands for create, read, update, delete. So these are the basic data manipulation operations.
+
+**The following keywords are required for CRUD operations:**
+
+- **Create Data:** `INSERT INTO`
+- **Read Data:** `SELECT`
+- **Update Data:** `UPDATE`
+- **Delete Data:** `DELETE`
+
+### Inserting Data:
+```SQL
+INSERT INTO <table name> (<column names>)
+VALUES (<column values>);
+```
 ___
