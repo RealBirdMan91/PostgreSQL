@@ -12,6 +12,7 @@
 - [Unique Values and Identifiers](#unique-values-and-identifiers)
 - [The Primary Key](#the-primary-key)
 - [CRUD](#crud)
+- [Filter Data](#filter-data)
 
 ---
 
@@ -337,3 +338,7 @@ DELETE FROM <table name>
 WHERE <condition>;
 ```
 ___
+
+## Filter Data
+The **WHERE** clause can be used to filter the requested data from the database.
+https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/
