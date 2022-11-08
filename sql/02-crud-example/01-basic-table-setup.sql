@@ -4,7 +4,7 @@
 CREATE TABLE sales (
     id SERIAL PRIMARY KEY,
     date_created DATE DEFAULT CURRENT_DATE,
-    date_fulfilled DATE,
+    date_fulfilled DATE DEFAULT NULL,
     customer_name VARCHAR(200) NOT NULL,
     customer_email VARCHAR(200) NOT NULL UNIQUE,
     product_name VARCHAR(200) NOT NULL,
