@@ -19,6 +19,16 @@
             "name": "cornify",
             "database": "cornify",
             "username": "postgres"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "askForPassword": true,
+            "driver": "PostgreSQL",
+            "name": "crud",
+            "database": "crud_example",
+            "username": "postgres"
         }
     ]
 }
