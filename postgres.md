@@ -229,6 +229,8 @@ SELECT AVG(salary) FROM unicorns;
 ```
 
 **NOT NULL**
+> A Constraint restrict which values can actually be inserted into a column
+
 In some cases, it should not be allowed that no value is entered for a field. This can be achieved with the keywords **NOT NULL**. The example below shows a table in which the fields must be filled in.
 ```SQL
 CREATE TABLE unicorns(
@@ -283,3 +285,4 @@ The **PRIMARY KEY** is also a constraint that monitors that a value is unique. A
 The **PRIMARY KEY** signals to the RDBMS that this field is the primary identifier.
 
 > When storing data, each data entry should have at least one unique value (for identifying the record).
+___
