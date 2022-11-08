@@ -297,9 +297,43 @@ What are CRUD operations?  CRUD stands for create, read, update, delete. So thes
 - **Update Data:** `UPDATE`
 - **Delete Data:** `DELETE`
 
-### Inserting Data:
+### Create Data:
 ```SQL
+-- creates new record in db
 INSERT INTO <table name> (<column names>)
 VALUES (<column values>);
+
+-- creates multiple records in db
+INSERT INTO <table name> (<column names>)
+VALUES 
+    (<column values>), -- record 1
+    (<column values>); -- record 2
+
+-- creates new record by getting value out of a query
+INSERT INTO <table name> (<column names>)
+SELECT <query>
+FROM <table2 name>;
+```
+
+### Read Data:
+```SQL
+-- Fetch the values for the specified columns from the specified table
+SELECT <columns> FROM <table name>;
+
+-- Fetch the values for the specified columns from the specified table - but only for records where the codition is met z.B price < 1000
+SELECT <columns> FROM <table name> WHERE <condition>;
+```
+
+### Updating Data:
+```SQL
+UPDATE <table name>
+SET <column name> = <new value>, ...
+WHERE <condition>;
+```
+
+### Deleting Data:
+```SQL
+DELETE FROM <table name>
+WHERE <condition>;
 ```
 ___
