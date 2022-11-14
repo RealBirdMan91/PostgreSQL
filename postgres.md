@@ -5,6 +5,7 @@
 - [Working with Databases and Tables](#working-with-databases-and-tables)
     - [Create](#create)
     - [Drop](#drop)
+    - [Alter](#alter)
 - [Data Types](#data-types)
 - [Insert Data](#insert-data)
 - [Querying Data](#querying-data)
@@ -96,12 +97,15 @@ CREATE TABLE unicorns(
 ```
 ___
 
-## DROP:
-Using the keywords 'DROP TABLE' followed by the respective table name. A table can be deleted
+## DROP
+Using the keywords `DROP TABLE` followed by the respective table name. A table can be deleted
 ```SQL
 DROP TABLE unicorns;
 ```
 ---
+
+## Alter
+
 
 ## Data Types
 
