@@ -11,7 +11,8 @@
     - [Numeric Types](#numeric-types)
     - [Date Types](#date-types)
     - [Boolean Type](#boolean-type)   
-- [Constraints](#constraints)        
+- [Constraints](#constraints)
+    - [Check Constraints ](#check-constraints )       
 - [Insert Data](#insert-data)
 - [Querying Data](#querying-data)
 - [Updating Data](#updating-data)
@@ -208,13 +209,41 @@ Databases are used to store primitive values. That means the path to a certain f
 ---
 
 ## Constraints
+A **Constraint** restrict which values can actually be inserted into a column.
+
+**A distinction is made between different constraints, these would be:**
+
+1. Check Constraints
+2. Not-Null Constraints
+3. Unique Constraints
+4.  Primary Keys
+5. Foreign Keys
+6. Exclusion Constraints
+---
+## Check Constraints
+The `CHECK` constraint can be used to specify that the value in a particular column must satisfy a Boolean expression (truth value).
+
+In the example below, it is specified that the column salary may only contain values that are greater than 1000.
+
+```SQL
+CREATE TABLE unicorns(
+    id serial PRIMARY KEY,
+    unicorn_name VARCHAR(200),
+    salary INT CHECK (salary > 1000),
+);
+```
+
+>You can also give the constraint a separate name. This clarifies error messages and allows you to refer to the constraint when you need to change it. 
+
+```SQL
+CREATE TABLE unicorns(
+    id serial PRIMARY KEY,
+    unicorn_name VARCHAR(200),
+    salary INT CONSTRAINT salary_price CHECK (salary > 1000),
+);
+```
 
 ---
-
-
-
-
-
 ## Insert Data
 
 With the keyword **INSERT** data can be stored in a database. The keyword **INTO** specifies in which table the data is stored.
