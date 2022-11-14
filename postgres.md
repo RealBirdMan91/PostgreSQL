@@ -11,8 +11,10 @@
     - [Numeric Types](#numeric-types)
     - [Date Types](#date-types)
     - [Boolean Type](#boolean-type)   
+- [Default Values](#default-values)     
 - [Constraints](#constraints)
-    - [Check Constraints ](#check-constraints )       
+    - [Check Constraints ](#check-constraints )
+    - [Not Null Constraints ](#not-null-constraints )             
 - [Insert Data](#insert-data)
 - [Querying Data](#querying-data)
 - [Updating Data](#updating-data)
@@ -207,6 +209,17 @@ The Boolean type accepts **truthy** or **falsy** values.
 Databases are used to store primitive values. That means the path to a certain file can be stored in a database, not the file itself.
 
 ---
+## Default Values
+A column can be assigned a default value. When a new row is created and no values are specified for some of the columns, those columns will be filled with their respective default values.
+
+```SQL
+CREATE TABLE unicorns(
+    id serial PRIMARY KEY,
+    unicorn_name VARCHAR(200),
+    salary INT DEFAULT NULL,
+);
+```
+---
 
 ## Constraints
 A **Constraint** restrict which values can actually be inserted into a column.
@@ -239,10 +252,21 @@ CREATE TABLE unicorns(
 CREATE TABLE unicorns(
     id serial PRIMARY KEY,
     unicorn_name VARCHAR(200),
-    salary INT CONSTRAINT salary_price CHECK (salary > 1000),
+    salary INT CONSTRAINT salary_price CHECK (salary > 1000)
 );
 ```
+---
+## Not Null Constraints
+A not-null constraint simply specifies that a column must not assume the null value.
 
+The example below specifies that the value for unicorn_name must not be `NULL`.
+```SQL
+CREATE TABLE unicorns(
+    id serial PRIMARY KEY,
+    unicorn_name VARCHAR(200) NOT NULL,
+    salary INT DEFAULT NULL CONSTRAINT salary_price CHECK (salary > 1000),
+);
+```
 ---
 ## Insert Data
 
