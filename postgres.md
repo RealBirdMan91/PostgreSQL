@@ -14,7 +14,10 @@
 - [Default Values](#default-values)     
 - [Constraints](#constraints)
     - [Check Constraints ](#check-constraints )
-    - [Not Null Constraints ](#not-null-constraints )             
+    - [Not Null Constraints ](#not-null-constraints )
+    - [Unique Constraints ](#unique-constraints )    
+    - [Primary Keys ](#primary-keys )     
+    - [Foreign Keys ](#foreign-keys )
 - [Insert Data](#insert-data)
 - [Querying Data](#querying-data)
 - [Updating Data](#updating-data)
@@ -216,7 +219,7 @@ A column can be assigned a default value. When a new row is created and no value
 CREATE TABLE unicorns(
     id serial PRIMARY KEY,
     unicorn_name VARCHAR(200),
-    salary INT DEFAULT NULL,
+    salary INT DEFAULT NULL
 );
 ```
 ---
@@ -242,7 +245,7 @@ In the example below, it is specified that the column salary may only contain va
 CREATE TABLE unicorns(
     id serial PRIMARY KEY,
     unicorn_name VARCHAR(200),
-    salary INT CHECK (salary > 1000),
+    salary INT CHECK (salary > 1000)
 );
 ```
 
@@ -264,9 +267,30 @@ The example below specifies that the value for unicorn_name must not be `NULL`.
 CREATE TABLE unicorns(
     id serial PRIMARY KEY,
     unicorn_name VARCHAR(200) NOT NULL,
-    salary INT DEFAULT NULL CONSTRAINT salary_price CHECK (salary > 1000),
+    salary INT DEFAULT NULL CONSTRAINT salary_price CHECK (salary > 1000)
 );
 ```
+---
+## Unique Constraints
+The `UNIQUE` constraint ensure that the value in a column is unique.
+This can be useful when assigning id's or email addresses.
+```SQL
+CREATE TABLE unicorns(
+    id SERIAL PRIMARY KEY,
+    unicorn_name VARCHAR(200) NOT NULL,
+    email: VARCHAR(200) NOT NULL UNIQUE,
+    salary INT DEFAULT NULL CONSTRAINT salary_price CHECK (salary > 1000)
+);
+```
+---
+## Primary Keys
+The `PRIMARY KEY` indicates, that a value is unique. A `PRIMARY KEY` may only be assigned once per table.
+
+> The `PRIMARY KEY` signals to the RDBMS that this field is the primary identifier of a record.
+
+---
+## Foreign Keys
+
 ---
 ## Insert Data
 
