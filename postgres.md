@@ -25,6 +25,9 @@
     - [Remove constraints ](#remove-constraints )
     - [Change default values ](#change-default-values )    
 - [CRUD](#crud ) 
+    - [Inserting Data](#inserting-data )
+    - [Updating Data](#updating-data )
+
 ---
 
 ## What is a RDBMS
@@ -399,3 +402,34 @@ ALTER TABLE unicorns RENAME TO beautiful_unicorns;
 ---
 
 ## CRUD
+What are CRUD operations? CRUD stands for create, read, update, delete. So these are the basic data manipulation operations.
+
+**The following keywords are required for CRUD operations:**
+
+- **Create Data:** `INSERT INTO`
+- **Read Data:** `SELECT`
+- **Update Data:** `UPDATE`
+- **Delete Data:** `DELETE`
+---
+
+## Inserting Data
+The column names in the round brackets can be omitted. Then, the column values must be entered exactly according to the order of the table. <br>
+If column names are used, the values are oriented according to these.
+
+>If you don't have values for all the columns, you can omit some of them. In that case, the columns will be filled with their default values.
+
+```SQL
+-- insert single row
+INSERT INTO <table name> (<column names>)
+VALUES (<column values>);
+
+--insert multiple rows
+INSERT INTO <table name> (<column names>)
+VALUES 
+    (<column values>), --row 1
+    (<column values>), --row 2
+    (<column values>); --row 3
+```
+---
+## Updating Data
+
