@@ -7,6 +7,10 @@
     - [Drop](#drop)
     - [Alter](#alter)
 - [Data Types](#data-types)
+    - [Character Types](#character-types)
+    - [Numeric Types](#numeric-types)
+    - [Date Types](#date-types)
+    - [Boolean Type](#boolean-type)
 - [Insert Data](#insert-data)
 - [Querying Data](#querying-data)
 - [Updating Data](#updating-data)
@@ -82,6 +86,10 @@ When working with databases and tables, the following keywords are important.
 ```SQL
 CREATE DATABASE cornify;
 ```
+
+```SQL
+DROP DATABASE cornify;
+```
 ___
 
 ## Create
@@ -105,7 +113,13 @@ DROP TABLE unicorns;
 ---
 
 ## Alter
+The keywords `ALTER TABLE` followed by the table name indicate which table is to be changed.
 
+In the example below, a description field of data type `TEXT` is added to the unicorns table. More information on this topic will be given later in the [Modifying Tables](#modifying-tables) chapter.
+```SQL
+ALTER TABLE unicorns ADD COLUMN description TEXT;
+```
+---
 
 ## Data Types
 
@@ -118,6 +132,7 @@ Data types are needed to specify which value may be entered into the field of a 
 - Character
 - Numeric
 - Date
+- Boolean
 
 ---
 
@@ -168,12 +183,24 @@ CREATE TABLE conversations (
 ```
 
 ---
+## Boolean Type
+The Boolean type accepts **truthy** or **falsy** values.
 
-## Other Types
+**truthy:** 
+1. true
+2. 'yes
+3. 'on
+4. 1
 
-Other data types that are often used are **BOOLEAN** (true or false), **JSON** or **XML**.
+**Falsy:**
+1. false
+2. 'no
+3. 'off
+4. 0
 
-## What about files?
+
+---
+## What about files
 
 Databases are used to store primitive values. That means the path to a certain file can be stored in a database, not the file itself.
 
