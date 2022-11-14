@@ -2,7 +2,8 @@
 
 - [What is a RDBMS](#what-is-a-rdbms)
 - [What is SQL](#what-is-sql)
-- [Data Definition](#data-definition)
+- [Working with Databases and Tables](#working-with-databases-and-tables)
+    - [Table](#table)
 - [Data Types](#data-types)
 - [Insert Data](#insert-data)
 - [Querying Data](#querying-data)
@@ -39,9 +40,9 @@ A single database can contain many different tables. For example, one table for 
 | 1   | Strange Town  | 175 |  33 |
 | 2   | Sleepy Hollow | 55  | 199 |
 
-It is possible to link the different tables together. Like **Unicorns** and **Locations** in the example above.
+>It is possible to link the different tables together. Like **Unicorns** and **Locations** in the example above.
 
-A table is divided into **fields (columns)** and **records (rows)**. It is important that a record must be assigned a unique id. This is important to be able to identify it later.
+A table is divided into **fields (columns)** and **records (rows)**. It is important that a record must be assigned a unique id, to be able to identify it later.
 
 ![Server](./images/server.png)
 
@@ -50,7 +51,12 @@ A table is divided into **fields (columns)** and **records (rows)**. It is impor
 ## What is SQL
 
 SQL is the language that is required to communicate with a relational database.
-In the core syntax, a distinction is made between **Key Words** and **Identifiers**. The **Key Words** are specified by the language itself. The **Identifiers** result from the various fields in a table.
+In the core syntax, a distinction is made between **Key Words** and **Identifiers**.<br> 
+The **Key Words** are specified by the language itself.<br>
+ The **Identifiers** result from the various fields in a table.<br>
+
+An acurate list of all Keywords can be found [here](https://www.postgresql.org/docs/current/sql-keywords-appendix.html).
+
 
 ![Syntax](./images/syntax.jpg)
 
@@ -58,12 +64,12 @@ Syntax Regeln:
 Syntax rules:
 
 1. SQL statements must end with a semicolon (if multiple statements are included in the same command).
-2. SQL statements are case-insensitive. This means that FROM is the same as from (for better identification of keywords, they should still be capitalized).
+2. SQL statements are case-insensitive. This means that `FROM` is the same as `from` (for better identification of keywords, they should still be capitalized).
 3. identifiers can be surrounded with double quotes to avoid conflicts with built-in keywords.
 
 ---
 
-## Data Definition
+## Working with Databases and Tables
 
 When working with databases and tables, the following keywords are important.
 
@@ -74,6 +80,27 @@ When working with databases and tables, the following keywords are important.
 ```SQL
 CREATE DATABASE cornify;
 ```
+___
+
+## Table
+
+### Create:
+The keywords `CREATE TABLE` followed by a random table name indicate that a table is being created. The following round brackets specify which fields the table contains and which data types are allowed in the respective fields.
+
+A list of the most common data types can be found in the chapter [Data Types](#data-types).
+```SQL
+CREATE TABLE unicorns(
+    id SERIAL PRIMARY KEY,
+    unicorn_name VARCHAR(200),
+    salary INT,
+);
+```
+### DROP:
+Using the keywords 'DROP TABLE' followed by the respective table name. A table can be deleted
+```SQL
+DROP TABLE unicorns;
+```
+
 
 ---
 
