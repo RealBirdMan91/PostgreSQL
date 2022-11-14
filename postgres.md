@@ -356,13 +356,13 @@ DROP CONSTRAINT salary_range;
 
 ## Change default values
 
-### Changing a Column's Default Value:
+### 1. Changing a Column's Default Value:
 After the table has been referenced, the desired column can be changed via 'ALTER COLUMN'. The keyword `SET` allows to set a default value.
 ```SQL
 ALTER TABLE unicorns ALTER COLUMN is_happy SET DEFAULT TRUE;
 ```
 
-### Changing a Column's Data Type:
+### 2. Changing a Column's Data Type:
 The keywords `SET DATA TYPE` can be used to change the data type of a column.
 ```SQL
 ALTER TABLE unicorns ALTER COLUMN salary SET DATA TYPE REAL;
@@ -372,13 +372,13 @@ ALTER TABLE unicorns ALTER COLUMN salary SET DATA TYPE REAL;
 PostgreSQL will attempt to convert the column's default value (if any) to the new type, as well as any constraints that involve the column. But these conversions might fail, or might produce surprising results. It's often best to drop any constraints on the column before altering its type, and then add back suitably modified constraints afterwards.
 
 
-### Renaming a Column:
+### 3. Renaming a Column:
 The keywords `RENAME COLUMN` can be used to rename a column. This is done by referencing the old column name followed by the keyword `TO` and the name of the new column.
 ```SQL
 ALTER TABLE unicorns RENAME COLUMN salary TO yearly_salary;
 ```
 
-### Renaming a Table:
+### 4. Renaming a Table:
 A table can be renamed similarly to a column. An example is included below.
 ```SQL
 ALTER TABLE unicorns RENAME TO beautiful_unicorns;
