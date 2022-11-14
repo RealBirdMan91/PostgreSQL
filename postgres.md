@@ -3,7 +3,8 @@
 - [What is a RDBMS](#what-is-a-rdbms)
 - [What is SQL](#what-is-sql)
 - [Working with Databases and Tables](#working-with-databases-and-tables)
-    - [Table](#table)
+    - [Create](#create)
+    - [Drop](#drop)
 - [Data Types](#data-types)
 - [Insert Data](#insert-data)
 - [Querying Data](#querying-data)
@@ -82,9 +83,7 @@ CREATE DATABASE cornify;
 ```
 ___
 
-## Table
-
-### Create:
+## Create
 The keywords `CREATE TABLE` followed by a random table name indicate that a table is being created. The following round brackets specify which fields the table contains and which data types are allowed in the respective fields.
 
 A list of the most common data types can be found in the chapter [Data Types](#data-types).
@@ -95,13 +94,13 @@ CREATE TABLE unicorns(
     salary INT,
 );
 ```
-### DROP:
+___
+
+## DROP:
 Using the keywords 'DROP TABLE' followed by the respective table name. A table can be deleted
 ```SQL
 DROP TABLE unicorns;
 ```
-
-
 ---
 
 ## Data Types
