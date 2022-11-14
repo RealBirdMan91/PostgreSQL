@@ -10,7 +10,8 @@
     - [Character Types](#character-types)
     - [Numeric Types](#numeric-types)
     - [Date Types](#date-types)
-    - [Boolean Type](#boolean-type)
+    - [Boolean Type](#boolean-type)   
+- [Constraints](#constraints)        
 - [Insert Data](#insert-data)
 - [Querying Data](#querying-data)
 - [Updating Data](#updating-data)
@@ -206,6 +207,14 @@ Databases are used to store primitive values. That means the path to a certain f
 
 ---
 
+## Constraints
+
+---
+
+
+
+
+
 ## Insert Data
 
 With the keyword **INSERT** data can be stored in a database. The keyword **INTO** specifies in which table the data is stored.
@@ -237,7 +246,7 @@ SELECT (unicorn_name, id) FROM unicorns;
 
 ## Time to Practice:
 
-An example for creating a table can be taken from [this](./sql/02-unicorns-table.sql). file.
+An example for creating a table can be taken from [this](./sql/01-clash-of-unicornClans/02-unicorns-table.sql). file.
 How to create a record can be seen in the example above.
 
 > It is important to ensure that the values take into account the correct data type of the respective field. A string as value should always be written in single quotes.
