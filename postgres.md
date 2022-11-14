@@ -356,6 +356,15 @@ DROP CONSTRAINT salary_range;
 
 ## Change default values
 
+### Changing a Column's Default Value:
+After the table has been referenced, the desired column can be changed via 'ALTER COLUMN'. The keyword `SET` allows to set a default value.
+```SQL
+ALTER TABLE unicorns ALTER COLUMN is_happy SET DEFAULT TRUE;
+```
+
+### Changing a Column's Data Type:
+
+
 ---
 
 ## Insert Data
