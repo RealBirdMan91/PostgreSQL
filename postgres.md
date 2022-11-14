@@ -18,6 +18,12 @@
     - [Unique Constraints ](#unique-constraints )    
     - [Primary Keys ](#primary-keys )     
     - [Foreign Keys ](#foreign-keys )
+- [Modifying Tables ](#modifying-tables )
+    - [Add columns ](#add-columns )
+    - [Remove columns ](#remove-columns )
+    - [Add constraints ](#add-constraints )
+    - [Remove constraints ](#remove-constraints )
+    - [Change default values ](#change-default-values )
 - [Insert Data](#insert-data)
 - [Querying Data](#querying-data)
 - [Updating Data](#updating-data)
@@ -283,6 +289,7 @@ CREATE TABLE unicorns(
 );
 ```
 ---
+
 ## Primary Keys
 The `PRIMARY KEY` indicates, that a value is unique. A `PRIMARY KEY` may only be assigned once per table.
 ```SQL
@@ -298,12 +305,65 @@ CREATE TABLE unicorns(
 ---
 ## Foreign Keys
 
+ @TODO Work out here later
+
 ---
+
+## Modifying Tables
+PostgreSQL provides a set of commands to make changes to an existing table. The **records** in the table will not be deleted.
+
+**Postgres provides solutions for the following scenarios.**
+1. Add columns
+2. Remove columns
+3. Add constraints
+4. Remove constraints
+5. Change default values
+6. Change column data types
+7. Rename columns
+8. Rename tables
+---
+## Add columns
+As described in the section **Working with Databases and Tables**, `ALTER TABLE` is needed to update an existing table.
+
+Using the keywords `ADD COLUMN` a new column can be created. Also the desired data type for the field must be specified.
+
+```SQL
+ALTER TABLE unicorns ADD COLUMN description text;
+```
+---
+## Remove columns
+The keyword `DROP` followed by the column name can be used to drop a column.
+```SQL
+ALTER TABLE unicorns DROP COLUMN description;
+```
+---
+## Add constraints
+To add a Constaraint to an existing field, the procedure is a little different. With the keywords `ADD CONSTRAINT` a new constraint can be created. This will be assigned a name of your choice. The constraint is not directly assigned to a field but results from the filter.
+
+```SQL
+ALTER TABLE unicorns
+ADD CONSTRAINT salary_range CHECK (salary > 1000 AND salary < 100000);
+```
+---
+## Remove constraints
+To remove a constraint you need to know its name. If you gave it a name then that's easy.
+
+```SQL
+ALTER TABLE unicorns
+DROP CONSTRAINT salary_range;
+```
+---
+
+## Change default values
+
+---
+
 ## Insert Data
 
 With the keyword **INSERT** data can be stored in a database. The keyword **INTO** specifies in which table the data is stored.
 
 The keyword **VALUES** can be used to specify which values are stored in the respective fields.
+
 
 ```SQL
 INSERT INTO unicorns (unicorn_name, salary, unicorn_type)
