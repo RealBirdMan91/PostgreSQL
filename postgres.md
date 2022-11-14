@@ -285,7 +285,14 @@ CREATE TABLE unicorns(
 ---
 ## Primary Keys
 The `PRIMARY KEY` indicates, that a value is unique. A `PRIMARY KEY` may only be assigned once per table.
-
+```SQL
+CREATE TABLE unicorns(
+    id SERIAL PRIMARY KEY,
+    unicorn_name VARCHAR(200) NOT NULL,
+    email: VARCHAR(200) NOT NULL UNIQUE,
+    salary INT DEFAULT NULL CONSTRAINT salary_price CHECK (salary > 1000)
+);
+```
 > The `PRIMARY KEY` signals to the RDBMS that this field is the primary identifier of a record.
 
 ---
