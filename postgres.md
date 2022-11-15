@@ -196,14 +196,14 @@ The Boolean type accepts **truthy** or **falsy** values.
 
 **truthy:** 
 1. true
-2. 'yes
-3. 'on
+2. 'yes'
+3. 'on'
 4. 1
 
 **Falsy:**
 1. false
-2. 'no
-3. 'off
+2. 'no'
+3. 'off'
 4. 0
 
 
