@@ -10,6 +10,6 @@ CREATE TABLE sales (
     product_name VARCHAR(200) NOT NULL,
     price NUMERIC(10,2) NOT NULL CHECK (price >= 0),
     is_recurring BOOLEAN DEFAULT FALSE,
-    is_disputed BOOLEAN DEFAULT FALSE
+    is_canceled BOOLEAN DEFAULT FALSE
 )
 

@@ -28,7 +28,8 @@
     - [Inserting Data](#inserting-data )
     - [Updating Data](#updating-data ) 
     - [Deleting Data](#deleting-data )
-
+    - [Deleting Data](#deleting-data )
+    - [Query Data](#query-data)
 ---
 
 ## What is a RDBMS
@@ -470,3 +471,22 @@ WHERE <condition>;
 DELETE FROM <table name>;
 ```
 ---
+## Query Data
+The keyword `SELECT` can be used to query data from the database. After the `SELECT` keyword, a comma-separated list can be used to specify which columns from the database are required. The keyword `FROM` indicates in which table the data records are located. <br>
+Also the `SELECT` statement accepts a where clause, this can be used as a filter.
+
+> A wildcard ( * ) indicates that all columns in a table are needed.
+```SQL
+-- get back customer_name and product_name columns
+SELECT customer_name, 
+    product_name, 
+FROM sales
+WHERE (price > 100) AND (is_disputed IS FALSE);
+
+
+-- get back all columns
+SELECT *
+FROM sales
+WHERE (price > 100) AND (is_disputed IS FALSE);
+
+```

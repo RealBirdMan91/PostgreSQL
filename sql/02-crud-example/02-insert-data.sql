@@ -3,7 +3,7 @@
 --    customer_email,
 --    product_name,
 --    price,
---    is_recurring
+--    is_canceled
 --)
 --VALUES (
 --    'Julian Vogel',
@@ -20,7 +20,7 @@ INSERT INTO sales (
     product_name,
     price,
     is_recurring,
-    is_disputed
+    is_canceled
 )
 VALUES (
     NULL,
