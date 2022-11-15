@@ -172,13 +172,13 @@ All Numeric Types for PostgreSQL can be read [here](https://www.postgresql.org/d
 ## Date Types
 
 All Date Types for PostgreSQL can be read [here](https://www.postgresql.org/docs/current/datatype-datetime.html).
-The most important date types are **DATE** and **TIMESTAMP**.
+The most important date types are `DATE` and `TIMESTAMP`.
 
-**DATE** contains the current date without taking hours or minutes into account.
+`DATE` contains the current date without taking hours or minutes into account.
 
-**TIMESTAMP** is needed to store hours and minutes with consideration of the time zone.
+`TIMESTAMP` is needed to store hours and minutes with consideration of the time zone.
 
-With the help of the **DEFAULT** keyword, default values can be stored for the respective field. For a date type this can be helpful in combination with the **CURRENT_TIMESTAMP** keyword.
+With the help of the `DEFAULT` keyword, default values can be stored for the respective field. For a date type this can be helpful in combination with the `CURRENT_TIMESTAMP` or `CURRENT_DATE` keyword.
 
 ```SQL
 CREATE TABLE conversations (
@@ -459,7 +459,7 @@ WHERE  is_happy IS NOT TRUE;
 ```
 ---
 ## Deleting Data
-The keyword 'DELETE' can be used to delete one or more columns from a table. Here a where clause can be used as a filter. If this is not specified, all columns in the table will be deleted.
+The keywords 'DELETE FROM' can be used to delete one or more columns from a table. Here a where clause can be used as a filter. If this is not specified, all columns in the table will be deleted.
 
 ```SQL
 -- deletes specific columns
@@ -469,3 +469,4 @@ WHERE <condition>;
 -- deletes all columns in the table
 DELETE FROM <table name>;
 ```
+---
