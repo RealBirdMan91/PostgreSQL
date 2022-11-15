@@ -26,7 +26,8 @@
     - [Change default values ](#change-default-values )    
 - [CRUD](#crud ) 
     - [Inserting Data](#inserting-data )
-    - [Updating Data](#updating-data )
+    - [Updating Data](#updating-data ) 
+    - [Deleting Data](#deleting-data )
 
 ---
 
@@ -432,4 +433,39 @@ VALUES
 ```
 ---
 ## Updating Data
+The keyword `UPDATE` followed by the table name can be used to change a column. The `SET` keyword is used for this purpose. In one command either one column or several columns can be updated at the same time. 
 
+```SQL
+-- update single row
+UPDATE <table name>
+SET <column name> = <new value>
+WHERE <condition>;
+
+--update multiple rows
+UPDATE <table name>
+SET <column name> = <new value>, --row 1
+    <column name> = <new value>, --row 2
+    <column name> = <new value> --row 3
+WHERE <condition>;
+```
+>`UPDATE` also accepts a where clause. This will be discussed in more detail later in the Filter chapter. **A simple example of a where clause can be taken from below**
+
+```SQL
+UPDATE unicorns
+SET 
+    food_amount = 1000,
+    rainbow_hugs = 500
+WHERE  is_happy IS NOT TRUE;
+```
+---
+## Deleting Data
+The keyword 'DELETE' can be used to delete one or more columns from a table. Here a where clause can be used as a filter. If this is not specified, all columns in the table will be deleted.
+
+```SQL
+-- deletes specific columns
+DELETE FROM <table name>
+WHERE <condition>;
+
+-- deletes all columns in the table
+DELETE FROM <table name>;
+```
