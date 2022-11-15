@@ -1,2 +1,2 @@
 DELETE FROM sales
-WHERE is_disputed = TRUE;
+WHERE is_canceled = TRUE;

@@ -3,33 +3,43 @@
 - [What is a RDBMS](#what-is-a-rdbms)
 - [What is SQL](#what-is-sql)
 - [Working with Databases and Tables](#working-with-databases-and-tables)
-    - [Create](#create)
-    - [Drop](#drop)
-    - [Alter](#alter)
+  - [Create](#create)
+  - [Drop](#drop)
+  - [Alter](#alter)
 - [Data Types](#data-types)
-    - [Character Types](#character-types)
-    - [Numeric Types](#numeric-types)
-    - [Date Types](#date-types)
-    - [Boolean Type](#boolean-type)   
-- [Default Values](#default-values)     
+  - [Character Types](#character-types)
+  - [Numeric Types](#numeric-types)
+  - [Date Types](#date-types)
+  - [Boolean Type](#boolean-type)
+- [Default Values](#default-values)
 - [Constraints](#constraints)
-    - [Check Constraints ](#check-constraints )
-    - [Not Null Constraints ](#not-null-constraints )
-    - [Unique Constraints ](#unique-constraints )    
-    - [Primary Keys ](#primary-keys )     
-    - [Foreign Keys ](#foreign-keys )
-- [Modifying Tables ](#modifying-tables )
-    - [Add columns ](#add-columns )
-    - [Remove columns ](#remove-columns )
-    - [Add constraints ](#add-constraints )
-    - [Remove constraints ](#remove-constraints )
-    - [Change default values ](#change-default-values )    
-- [CRUD](#crud ) 
-    - [Inserting Data](#inserting-data )
-    - [Updating Data](#updating-data ) 
-    - [Deleting Data](#deleting-data )
-    - [Deleting Data](#deleting-data )
-    - [Query Data](#query-data)
+  - [Check Constraints ](#check-constraints)
+  - [Not Null Constraints ](#not-null-constraints)
+  - [Unique Constraints ](#unique-constraints)
+  - [Primary Keys ](#primary-keys)
+  - [Foreign Keys ](#foreign-keys)
+- [Modifying Tables ](#modifying-tables)
+  - [Add columns ](#add-columns)
+  - [Remove columns ](#remove-columns)
+  - [Add constraints ](#add-constraints)
+  - [Remove constraints ](#remove-constraints)
+  - [Change default values ](#change-default-values)
+- [CRUD](#crud)
+  - [Inserting Data](#inserting-data)
+  - [Updating Data](#updating-data)
+  - [Deleting Data](#deleting-data)
+  - [Deleting Data](#deleting-data)
+  - [Query Data](#query-data)
+- [Filtering Data](#filtering-data)
+
+  - [Operators](#operators)
+
+    - [Equal Operator](#equal-operator)
+    - [AND Operator](#and-operator)
+    - [OR Operator](#or-operator)
+    - [IN Operator](#in-operator)
+    - [LIKE Operator](#like-operator)
+
 ---
 
 ## What is a RDBMS
@@ -55,7 +65,7 @@ A single database can contain many different tables. For example, one table for 
 | 1   | Strange Town  | 175 |  33 |
 | 2   | Sleepy Hollow | 55  | 199 |
 
->It is possible to link the different tables together. Like **Unicorns** and **Locations** in the example above.
+> It is possible to link the different tables together. Like **Unicorns** and **Locations** in the example above.
 
 A table is divided into **fields (columns)** and **records (rows)**. It is important that a record must be assigned a unique id, to be able to identify it later.
 
@@ -66,12 +76,11 @@ A table is divided into **fields (columns)** and **records (rows)**. It is impor
 ## What is SQL
 
 SQL is the language that is required to communicate with a relational database.
-In the core syntax, a distinction is made between **Key Words** and **Identifiers**.<br> 
+In the core syntax, a distinction is made between **Key Words** and **Identifiers**.<br>
 The **Key Words** are specified by the language itself.<br>
- The **Identifiers** result from the various fields in a table.<br>
+The **Identifiers** result from the various fields in a table.<br>
 
 An acurate list of all Keywords can be found [here](https://www.postgresql.org/docs/current/sql-keywords-appendix.html).
-
 
 ![Syntax](./images/syntax.jpg)
 
@@ -99,12 +108,15 @@ CREATE DATABASE cornify;
 ```SQL
 DROP DATABASE cornify;
 ```
-___
+
+---
 
 ## Create
+
 The keywords `CREATE TABLE` followed by a random table name indicate that a table is being created. The following round brackets specify which fields the table contains and which data types are allowed in the respective fields.
 
 A list of the most common data types can be found in the chapter [Data Types](#data-types).
+
 ```SQL
 CREATE TABLE unicorns(
     id SERIAL PRIMARY KEY,
@@ -112,22 +124,29 @@ CREATE TABLE unicorns(
     salary INT,
 );
 ```
-___
+
+---
 
 ## DROP
+
 Using the keywords `DROP TABLE` followed by the respective table name. A table can be deleted
+
 ```SQL
 DROP TABLE unicorns;
 ```
+
 ---
 
 ## Alter
+
 The keywords `ALTER TABLE` followed by the table name indicate which table is to be changed.
 
 In the example below, a description field of data type `TEXT` is added to the unicorns table. More information on this topic will be given later in the [Modifying Tables](#modifying-tables) chapter.
+
 ```SQL
 ALTER TABLE unicorns ADD COLUMN description TEXT;
 ```
+
 ---
 
 ## Data Types
@@ -192,29 +211,35 @@ CREATE TABLE conversations (
 ```
 
 ---
+
 ## Boolean Type
+
 The Boolean type accepts **truthy** or **falsy** values.
 
-**truthy:** 
+**truthy:**
+
 1. true
 2. 'yes'
 3. 'on'
 4. 1
 
 **Falsy:**
+
 1. false
 2. 'no'
 3. 'off'
 4. 0
 
-
 ---
+
 ## What about files
 
 Databases are used to store primitive values. That means the path to a certain file can be stored in a database, not the file itself.
 
 ---
+
 ## Default Values
+
 A column can be assigned a default value. When a new row is created and no values are specified for some of the columns, those columns will be filled with their respective default values.
 
 ```SQL
@@ -224,7 +249,9 @@ CREATE TABLE unicorns(
     salary INT DEFAULT NULL
 );
 ```
+
 ### Null:
+
 The `NULL` type is needed if you want to indicate that there is no data for this field.
 
 **NULL VS 0**
@@ -249,6 +276,7 @@ SELECT AVG(salary) FROM unicorns;
 ---
 
 ## Constraints
+
 A **Constraint** restrict which values can actually be inserted into a column.
 
 **A distinction is made between different constraints, these would be:**
@@ -256,11 +284,14 @@ A **Constraint** restrict which values can actually be inserted into a column.
 1. Check Constraints
 2. Not-Null Constraints
 3. Unique Constraints
-4.  Primary Keys
+4. Primary Keys
 5. Foreign Keys
 6. Exclusion Constraints
+
 ---
+
 ## Check Constraints
+
 The `CHECK` constraint can be used to specify that the value in a particular column must satisfy a Boolean expression (truth value).
 
 In the example below, it is specified that the column salary may only contain values that are greater than 1000.
@@ -273,7 +304,7 @@ CREATE TABLE unicorns(
 );
 ```
 
->You can also give the constraint a separate name. This clarifies error messages and allows you to refer to the constraint when you need to change it. 
+> You can also give the constraint a separate name. This clarifies error messages and allows you to refer to the constraint when you need to change it.
 
 ```SQL
 CREATE TABLE unicorns(
@@ -282,11 +313,15 @@ CREATE TABLE unicorns(
     salary INT CONSTRAINT salary_price CHECK (salary > 1000)
 );
 ```
+
 ---
+
 ## Not Null Constraints
+
 A not-null constraint simply specifies that a column must not assume the null value.
 
 The example below specifies that the value for unicorn_name must not be `NULL`.
+
 ```SQL
 CREATE TABLE unicorns(
     id serial PRIMARY KEY,
@@ -294,10 +329,14 @@ CREATE TABLE unicorns(
     salary INT DEFAULT NULL CONSTRAINT salary_price CHECK (salary > 1000)
 );
 ```
+
 ---
+
 ## Unique Constraints
+
 The `UNIQUE` constraint ensure that the value in a column is unique.
 This can be useful when assigning id's or email addresses.
+
 ```SQL
 CREATE TABLE unicorns(
     id SERIAL PRIMARY KEY,
@@ -306,10 +345,13 @@ CREATE TABLE unicorns(
     salary INT DEFAULT NULL CONSTRAINT salary_price CHECK (salary > 1000)
 );
 ```
+
 ---
 
 ## Primary Keys
+
 The `PRIMARY KEY` indicates, that a value is unique. A `PRIMARY KEY` may only be assigned once per table.
+
 ```SQL
 CREATE TABLE unicorns(
     id SERIAL PRIMARY KEY,
@@ -318,19 +360,23 @@ CREATE TABLE unicorns(
     salary INT DEFAULT NULL CONSTRAINT salary_price CHECK (salary > 1000)
 );
 ```
+
 > The `PRIMARY KEY` signals to the RDBMS that this field is the primary identifier of a record.
 
 ---
+
 ## Foreign Keys
 
- @TODO Work out here later
+@TODO Work out here later
 
 ---
 
 ## Modifying Tables
+
 PostgreSQL provides a set of commands to make changes to an existing table. The **records** in the table will not be deleted.
 
 **Postgres provides solutions for the following scenarios.**
+
 1. Add columns
 2. Remove columns
 3. Add constraints
@@ -339,8 +385,11 @@ PostgreSQL provides a set of commands to make changes to an existing table. The 
 6. Change column data types
 7. Rename columns
 8. Rename tables
+
 ---
+
 ## Add columns
+
 As described in the section **Working with Databases and Tables**, `ALTER TABLE` is needed to update an existing table.
 
 Using the keywords `ADD COLUMN` a new column can be created. Also the desired data type for the field must be specified.
@@ -348,62 +397,82 @@ Using the keywords `ADD COLUMN` a new column can be created. Also the desired da
 ```SQL
 ALTER TABLE unicorns ADD COLUMN description text;
 ```
+
 ---
+
 ## Remove columns
+
 The keyword `DROP` followed by the column name can be used to drop a column.
+
 ```SQL
 ALTER TABLE unicorns DROP COLUMN description;
 ```
+
 ---
+
 ## Add constraints
+
 To add a Constaraint to an existing field, the procedure is a little different. With the keywords `ADD CONSTRAINT` a new constraint can be created. This will be assigned a name of your choice. The constraint is not directly assigned to a field but results from the filter.
 
 ```SQL
 ALTER TABLE unicorns
 ADD CONSTRAINT salary_range CHECK (salary > 1000 AND salary < 100000);
 ```
+
 ---
+
 ## Remove constraints
+
 To remove a constraint you need to know its name. If you gave it a name then that's easy.
 
 ```SQL
 ALTER TABLE unicorns
 DROP CONSTRAINT salary_range;
 ```
+
 ---
 
 ## Change default values
 
 ### 1. Changing a Column's Default Value:
+
 After the table has been referenced, the desired column can be changed via 'ALTER COLUMN'. The keyword `SET` allows to set a default value.
+
 ```SQL
 ALTER TABLE unicorns ALTER COLUMN is_happy SET DEFAULT TRUE;
 ```
 
 ### 2. Changing a Column's Data Type:
+
 The keywords `SET DATA TYPE` can be used to change the data type of a column.
+
 ```SQL
 ALTER TABLE unicorns ALTER COLUMN salary SET DATA TYPE REAL;
 ```
 
 > This will succeed only if each existing entry in the column can be converted to the new type by an implicit cast. If a more complex conversion is needed, you can add a USING clause that specifies how to compute the new values from the old.<br>
-PostgreSQL will attempt to convert the column's default value (if any) to the new type, as well as any constraints that involve the column. But these conversions might fail, or might produce surprising results. It's often best to drop any constraints on the column before altering its type, and then add back suitably modified constraints afterwards.
-
+> PostgreSQL will attempt to convert the column's default value (if any) to the new type, as well as any constraints that involve the column. But these conversions might fail, or might produce surprising results. It's often best to drop any constraints on the column before altering its type, and then add back suitably modified constraints afterwards.
 
 ### 3. Renaming a Column:
+
 The keywords `RENAME COLUMN` can be used to rename a column. This is done by referencing the old column name followed by the keyword `TO` and the name of the new column.
+
 ```SQL
 ALTER TABLE unicorns RENAME COLUMN salary TO yearly_salary;
 ```
 
 ### 4. Renaming a Table:
+
 A table can be renamed similarly to a column. An example is included below.
+
 ```SQL
 ALTER TABLE unicorns RENAME TO beautiful_unicorns;
 ```
+
 ---
 
 ## CRUD
+
 What are CRUD operations? CRUD stands for create, read, update, delete. So these are the basic data manipulation operations.
 
 **The following keywords are required for CRUD operations:**
@@ -412,13 +481,15 @@ What are CRUD operations? CRUD stands for create, read, update, delete. So these
 - **Read Data:** `SELECT`
 - **Update Data:** `UPDATE`
 - **Delete Data:** `DELETE`
+
 ---
 
 ## Inserting Data
+
 The column names in the round brackets can be omitted. Then, the column values must be entered exactly according to the order of the table. <br>
 If column names are used, the values are oriented according to these.
 
->If you don't have values for all the columns, you can omit some of them. In that case, the columns will be filled with their default values.
+> If you don't have values for all the columns, you can omit some of them. In that case, the columns will be filled with their default values.
 
 ```SQL
 -- insert single row
@@ -427,14 +498,17 @@ VALUES (<column values>);
 
 --insert multiple rows
 INSERT INTO <table name> (<column names>)
-VALUES 
+VALUES
     (<column values>), --row 1
     (<column values>), --row 2
     (<column values>); --row 3
 ```
+
 ---
+
 ## Updating Data
-The keyword `UPDATE` followed by the table name can be used to change a column. The `SET` keyword is used for this purpose. In one command either one column or several columns can be updated at the same time. 
+
+The keyword `UPDATE` followed by the table name can be used to change a column. The `SET` keyword is used for this purpose. In one command either one column or several columns can be updated at the same time.
 
 ```SQL
 -- update single row
@@ -449,17 +523,21 @@ SET <column name> = <new value>, --row 1
     <column name> = <new value> --row 3
 WHERE <condition>;
 ```
->`UPDATE` also accepts a where clause. This will be discussed in more detail later in the Filter chapter. **A simple example of a where clause can be taken from below**
+
+> `UPDATE` also accepts a where clause. This will be discussed in more detail later in the Filter chapter. **A simple example of a where clause can be taken from below**
 
 ```SQL
 UPDATE unicorns
-SET 
+SET
     food_amount = 1000,
     rainbow_hugs = 500
 WHERE  is_happy IS NOT TRUE;
 ```
+
 ---
+
 ## Deleting Data
+
 The keywords 'DELETE FROM' can be used to delete one or more columns from a table. Here a where clause can be used as a filter. If this is not specified, all columns in the table will be deleted.
 
 ```SQL
@@ -470,23 +548,150 @@ WHERE <condition>;
 -- deletes all columns in the table
 DELETE FROM <table name>;
 ```
+
 ---
+
 ## Query Data
+
 The keyword `SELECT` can be used to query data from the database. After the `SELECT` keyword, a comma-separated list can be used to specify which columns from the database are required. The keyword `FROM` indicates in which table the data records are located. <br>
 Also the `SELECT` statement accepts a where clause, this can be used as a filter.
 
-> A wildcard ( * ) indicates that all columns in a table are needed.
+> A wildcard ( \* ) indicates that all columns in a table are needed.
+
 ```SQL
 -- get back customer_name and product_name columns
-SELECT customer_name, 
-    product_name, 
-FROM sales
-WHERE (price > 100) AND (is_disputed IS FALSE);
+SELECT customer_name,
+    product_name,
+FROM sales;
 
 
 -- get back all columns
 SELECT *
-FROM sales
-WHERE (price > 100) AND (is_disputed IS FALSE);
+FROM sales;
 
 ```
+
+---
+
+## Filtering Data
+
+For `Update`, `DELETE` and `SELECT` statements a where-clause can be used as a filter. This section explains in more detail how to write appropriate conditions for the `WHERE` clause.
+
+The condition must evaluate to true, false, or unknown. It can be a boolean expression or a combination of boolean expressions using the `AND` and `OR` operators.
+The query returns only rows that satisfy the condition in the `WHERE` clause. In other words, only rows that cause the condition evaluates to true will be included in the result set.
+
+```SQL
+SELECT *
+FROM sales
+WHERE (price > 100) AND (price < 1000);
+
+SELECT *
+FROM sales
+WHERE (price > 100) OR (is_disputed IS FALSE);
+```
+
+---
+
+## Operators
+
+To write conditions, operators are needed. A list of the most common operators can be seen below. A list of all operators can be found [here](https://www.postgresql.org/docs/15/functions.html).
+
+| Operator | Description                                         |
+| -------- | --------------------------------------------------- |
+| =        | Equal                                               |
+| >        | Greater than                                        |
+| <        | Less than                                           |
+| >=       | Greater than or equal                               |
+| <=       | Less than or equal                                  |
+| <> or != | Not equal                                           |
+| AND      | Logical operator AND                                |
+| OR       | Logical operator OR                                 |
+| IN       | Return true if a value matches any value in a list  |
+| BETWEEN  | Return true if a value is between a range of values |
+| LIKE     | Return true if a value matches a pattern            |
+| IS NULL  | Return true if a value is NULL                      |
+| IS FALSE | Return true if a value is FALSE                     |
+| NOT      | Negate the result of other operators                |
+
+---
+
+## Equal Operator
+
+```SQL
+SELECT id, unicorn_type
+FROM unicorns
+WHERE unicorn_name = 'MathHorn';
+```
+
+---
+
+## AND Operator
+
+```SQL
+SELECT id, unicorn_type
+FROM unicorns
+WHERE unicorn_name = 'MathHorn' AND unicorn_type = 'magical_one';
+```
+
+---
+
+## OR Operator
+
+```SQL
+SELECT id, unicorn_type
+FROM unicorns
+WHERE unicorn_name = 'MathHorn' OR unicorn_type = 'magical_one';
+```
+
+---
+
+## IN Operator
+
+If you want to match a string with any string in a list, you can use the `IN` operator.
+
+For example, the following statement returns an unicorn whose unicorn name is Lazycorn, or Strangecorn, or Pummelcorn.
+
+```SQL
+SELECT id, unicorn_type
+FROM unicorns
+WHERE unicorn_name IN ('Lazycorn', 'Strangecorn', 'Pummelcorn')
+```
+
+---
+
+## LIKE Operator
+
+To find a string that matches a specified pattern, you use the `LIKE` operator.
+
+The following example returns all unicorns whose unicorn_name start with the string `Laz`.
+
+```SQL
+SELECT id, unicorn_type
+FROM unicorns
+WHERE unicorn_name LIKE 'Laz%'
+```
+
+**The Underscore ( \_ ):** An underscore (\_) in pattern stands for (matches) any single character
+
+**The Percent Sign ( % ) :** A percent sign (%) matches any sequence of zero or more characters.
+
+> If pattern does not contain percent signs or underscores, then the pattern only represents the string itself
+
+**Examples:**
+
+```SQL
+SELECT *
+FROM sales
+WHERE product_name LIKE 'T%'; -- Finds any values that start with "T"
+```
+```SQL
+SELECT *
+FROM sales
+WHERE product_name LIKE '%JS%'; -- Finds any values that have "JS" in any position
+```
+```SQL
+SELECT *
+FROM sales
+WHERE product_name LIKE '%Book'; -- Finds any values that ends with "Book"
+```
+---
