@@ -4,6 +4,10 @@
 --FROM sales
 --WHERE (price > 100) AND (is_canceled IS TRUE);
 
+
 SELECT *
 FROM sales
-WHERE product_name LIKE '%Book';
+WHERE 
+    customer_name LIKE 'Bernd%' AND
+    customer_email <>  'bernd@web.de'
+

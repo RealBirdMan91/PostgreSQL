@@ -31,15 +31,14 @@
   - [Deleting Data](#deleting-data)
   - [Query Data](#query-data)
 - [Filtering Data](#filtering-data)
-
   - [Operators](#operators)
-
     - [Equal Operator](#equal-operator)
     - [AND Operator](#and-operator)
     - [OR Operator](#or-operator)
     - [IN Operator](#in-operator)
     - [LIKE Operator](#like-operator)
-
+    - [BETWEEN Operator](#between-operator)
+    - [Not Equal Operator](#not-equal-operator)
 ---
 
 ## What is a RDBMS
@@ -693,5 +692,24 @@ WHERE product_name LIKE '%JS%'; -- Finds any values that have "JS" in any positi
 SELECT *
 FROM sales
 WHERE product_name LIKE '%Book'; -- Finds any values that ends with "Book"
+```
+---
+## BETWEEN Operator
+The `BETWEEN` operator returns true if a value is in a range of values.
+```SQL
+SELECT *
+FROM sales
+WHERE price BETWEEN 20 AND 50;
+```
+---
+
+## Not Equal Operator
+In this example, the customer_name must start with "Bernd". But, the customer_email must not be the same as "bernd@web.de".
+```SQL
+SELECT *
+FROM sales
+WHERE 
+    customer_name LIKE 'Bernd%' AND
+    customer_email <>  'bernd@web.de'
 ```
 ---
