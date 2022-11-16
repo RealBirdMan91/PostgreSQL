@@ -39,6 +39,8 @@
     - [LIKE Operator](#like-operator)
     - [BETWEEN Operator](#between-operator)
     - [Not Equal Operator](#not-equal-operator)
+    - [Working with Dates](#working-with-dates)
+
 ---
 
 ## What is a RDBMS
@@ -573,8 +575,8 @@ FROM sales;
 > Addition: In the comma-separated list, the column names can be changed via the 'AS' keyword. Likewise arithmetic operations are possible.
 
 ```SQL
-SELECT customer_name, 
-    product_name, 
+SELECT customer_name,
+    product_name,
     price - (price * 0.25) AS discounted_price
 FROM sales
 WHERE (price > 100) AND (is_canceled IS TRUE);
@@ -693,33 +695,71 @@ SELECT *
 FROM sales
 WHERE product_name LIKE 'T%'; -- Finds any values that start with "T"
 ```
+
 ```SQL
 SELECT *
 FROM sales
 WHERE product_name LIKE '%JS%'; -- Finds any values that have "JS" in any position
 ```
+
 ```SQL
 SELECT *
 FROM sales
 WHERE product_name LIKE '%Book'; -- Finds any values that ends with "Book"
 ```
+
 ---
+
 ## BETWEEN Operator
+
 The `BETWEEN` operator returns true if a value is in a range of values.
+
 ```SQL
 SELECT *
 FROM sales
 WHERE price BETWEEN 20 AND 50;
 ```
+
 ---
 
 ## Not Equal Operator
+
 In this example, the customer_name must start with "Bernd". But, the customer_email must not be the same as "bernd@web.de".
+
 ```SQL
 SELECT *
 FROM sales
-WHERE 
+WHERE
     customer_name LIKE 'Bernd%' AND
     customer_email <>  'bernd@web.de'
 ```
+
+---
+
+## Working with Dates
+
+The `BETWEEN` operator can also be used to find a period of time between two dates.
+
+```SQL
+SELECT customer_name,
+    product_name,
+    price - (price * 0.25) AS discounted_price,
+    date_created,
+    date_fulfilled
+FROM sales
+WHERE date_fulfilled BETWEEN date_created AND '2023-05-01';
+```
+
+It is also possible to calculate with the date type. In the following example all sales are to be found where **date_fullfilled** is less than or equal to five days compared to **date_created**.
+
+```SQL
+SELECT customer_name,
+    product_name,
+    price - (price * 0.25) AS discounted_price,
+    date_created,
+    date_fulfilled
+FROM sales
+WHERE (date_fulfilled - date_created )<= 5
+```
+
 ---

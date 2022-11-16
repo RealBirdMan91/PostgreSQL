@@ -11,3 +11,5 @@ WHERE (price > 100) AND (is_canceled IS TRUE);
 --    customer_name LIKE 'Bernd%' AND
 --    customer_email <>  'bernd@web.de';
 
+
+
