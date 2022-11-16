@@ -570,6 +570,16 @@ FROM sales;
 
 ```
 
+> Addition: In the comma-separated list, the column names can be changed via the 'AS' keyword. Likewise arithmetic operations are possible.
+
+```SQL
+SELECT customer_name, 
+    product_name, 
+    price - (price * 0.25) AS discounted_price
+FROM sales
+WHERE (price > 100) AND (is_canceled IS TRUE);
+```
+
 ---
 
 ## Filtering Data
