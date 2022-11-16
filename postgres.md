@@ -251,7 +251,7 @@ CREATE TABLE unicorns(
 
 ### Null:
 
-The `NULL` type is needed if you want to indicate that there is no data for this field.
+The `NULL` value is needed if you want to indicate that there is no data for this field.
 
 **NULL VS 0**
 In the table below, Strangecorn has a value of `NULL` in the salary field. Let's assume that later on we want to calculate the average of all salaries. In this case, all records with the salary value of `NULL` would be excluded from the calculation.
@@ -303,7 +303,7 @@ CREATE TABLE unicorns(
 );
 ```
 
-> You can also give the constraint a separate name. This clarifies error messages and allows you to refer to the constraint when you need to change it.
+> With the `CONSTRAINT` keyword you can also give the constraint a separate name. This clarifies error messages and allows you to refer to the constraint when you need to change it.
 
 ```SQL
 CREATE TABLE unicorns(
@@ -435,7 +435,7 @@ DROP CONSTRAINT salary_range;
 
 ### 1. Changing a Column's Default Value:
 
-After the table has been referenced, the desired column can be changed via 'ALTER COLUMN'. The keyword `SET` allows to set a default value.
+After the table has been referenced, the desired column can be changed via `ALTER COLUMN`. The keyword `SET` allows to set a default value.
 
 ```SQL
 ALTER TABLE unicorns ALTER COLUMN is_happy SET DEFAULT TRUE;
@@ -507,7 +507,7 @@ VALUES
 
 ## Updating Data
 
-The keyword `UPDATE` followed by the table name can be used to change a column. The `SET` keyword is used for this purpose. In one command either one column or several columns can be updated at the same time.
+The keyword `UPDATE` followed by the table name can be used to change column values. The `SET` keyword is used for this purpose. In one command either one column or several columns can be updated at the same time.
 
 ```SQL
 -- update single row
@@ -523,7 +523,7 @@ SET <column name> = <new value>, --row 1
 WHERE <condition>;
 ```
 
-> `UPDATE` also accepts a where clause. This will be discussed in more detail later in the Filter chapter. **A simple example of a where clause can be taken from below**
+> `UPDATE` also accepts a where clause. This will be discussed in more detail later in the [Filtering Data](#filtering-data) chapter. **A simple example of a where clause can be taken from below**
 
 ```SQL
 UPDATE unicorns
@@ -537,7 +537,7 @@ WHERE  is_happy IS NOT TRUE;
 
 ## Deleting Data
 
-The keywords 'DELETE FROM' can be used to delete one or more columns from a table. Here a where clause can be used as a filter. If this is not specified, all columns in the table will be deleted.
+The keywords `DELETE FROM` can be used to delete one or more columns from a table. Here a `WHERE` clause also can be used as a filter. If this is not specified, all columns in the table will be deleted.
 
 ```SQL
 -- deletes specific columns
@@ -552,8 +552,8 @@ DELETE FROM <table name>;
 
 ## Query Data
 
-The keyword `SELECT` can be used to query data from the database. After the `SELECT` keyword, a comma-separated list can be used to specify which columns from the database are required. The keyword `FROM` indicates in which table the data records are located. <br>
-Also the `SELECT` statement accepts a where clause, this can be used as a filter.
+The keyword `SELECT` can be used to query data from the database. After the `SELECT` keyword, a comma-separated list can be used to specify which columns from the database are needed. The keyword `FROM` indicates in which table the data records are located. <br>
+Also the `SELECT` statement accepts a `WHERE` clause, this can be used as a filter.
 
 > A wildcard ( \* ) indicates that all columns in a table are needed.
 
