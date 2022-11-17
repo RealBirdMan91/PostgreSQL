@@ -40,6 +40,10 @@
     - [BETWEEN Operator](#between-operator)
     - [Not Equal Operator](#not-equal-operator)
     - [Working with Dates](#working-with-dates)
+- [ORDER BY](#order-by)
+- [LIMIT](#limit)
+    - [OFFSET](#offset)
+- [DISTINCT](#distinct)    
 
 ---
 
@@ -762,4 +766,49 @@ FROM sales
 WHERE (date_fulfilled - date_created )<= 5
 ```
 
+---
+
+## ORDER BY
+
+The keywords `ORDER BY` can be used to sort records by a specific column order. he default is by ascending order, with the keyword `DESC` the order can be changed to descending.
+```SQL
+SELECT *
+FROM sales
+WHERE date_fulfilled IS NOT NULL
+ORDER BY date_fulfilled DESC;
+```
+Of course, `ORDER BY` can also be used to order by a certain string. In the example below alphabetically by the column customer_name.
+```SQL
+SELECT *
+FROM sales
+WHERE date_fulfilled IS NOT NULL
+ORDER BY customer_name;
+```
+___
+## Limit
+`ORDER BY` is also often used in connection with the `LIMIT` keyword. In the example below, only the three most recently completed sales are output.
+```SQL
+SELECT *
+FROM sales
+WHERE date_fulfilled IS NOT NULL
+ORDER BY date_fulfilled DESC
+LIMIT 3;
+```
+### OFFSET
+The keyword `OFFSET` is needed to skip a certain number of rows. This can be very useful for a pagination.
+
+```SQL
+SELECT *
+FROM sales
+WHERE date_fulfilled IS NOT NULL
+ORDER BY id
+LIMIT 5 OFFSET 3
+```
+---
+## DISTINCT  
+The keyword `DISTINCT` is used for dropping all dublicates in the result set.
+```SQL
+SELECT DISTINCT *
+FROM sales
+```
 ---
