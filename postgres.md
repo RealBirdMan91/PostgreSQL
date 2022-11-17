@@ -847,3 +847,24 @@ FROM sales
 ```
 ---
 ## Related Data
+As described in the previous chapters, it is possible to link several tables together. Via so-called `JOIN` the columns of the different tables can then be requested.
+
+### **Unicorns:**
+
+| id  | name        | age | location_id |
+| --- | ----------- | --- | ----------: |
+| 1   | Friendcorn  | 175 |           1 |
+| 2   | Lazycorn    | 957 |           2 |
+| 3   | Strangecorn | 5   |           1 |
+
+### **Locations:**
+
+| id  | location      | lat | lng |
+| --- | ------------- | --- | --: |
+| 1   | Strange Town  | 175 |  33 |
+| 2   | Sleepy Hollow | 55  | 199 |
+
+```SQL
+SELECT DISTINCT customer_name
+FROM sales
+```
