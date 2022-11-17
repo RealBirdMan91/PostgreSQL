@@ -899,4 +899,5 @@ In the example above the `JOIN` keyword was used to query different tables. This
 
 The `AS` keyword was used to avoid a possible name-clash in the respective columns.
 
+---
 
