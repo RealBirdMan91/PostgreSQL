@@ -808,7 +808,7 @@ LIMIT 5 OFFSET 3
 ## DISTINCT  
 The keyword `DISTINCT` is used for dropping all dublicates in the result set.
 ```SQL
-SELECT DISTINCT *
+SELECT DISTINCT customer_name
 FROM sales
 ```
 ---
