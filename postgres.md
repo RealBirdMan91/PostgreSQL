@@ -44,6 +44,7 @@
 - [LIMIT](#limit)
     - [OFFSET](#offset)
 - [DISTINCT](#distinct)    
+- [Related Data](#related-data)
 
 ---
 
@@ -371,8 +372,41 @@ CREATE TABLE unicorns(
 ---
 
 ## Foreign Keys
+Foreign keys are used to ensure relationships between one or more tables.<br>
+This can be achieved using the `REFERENCES` keyword followed by the desired table name.
 
-@TODO Work out here later
+
+### **Unicorns:**
+
+| id  | name        | age | location_id |
+| --- | ----------- | --- | ----------: |
+| 1   | Friendcorn  | 175 |           1 |
+| 2   | Lazycorn    | 957 |           2 |
+| 3   | Strangecorn | 5   |           1 |
+
+### **Locations:**
+
+| id  | location      | lat | lng |
+| --- | ------------- | --- | --: |
+| 1   | Strange Town  | 175 |  33 |
+| 2   | Sleepy Hollow | 55  | 199 |
+
+```SQL
+CREATE TABLE unicorns (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(200) NOT NULL,
+    age INTEGER NOT NULL
+    location_id  INTEGER NOT NULL REFERENCES locations (id)
+);
+
+CREATE TABLE locations (
+    id SERIAL PRIMARY KEY,
+    location VARCHAR(200) NOT NULL,
+    lat INTEGER NOT NULL
+    lng INTEGER NOT NULL
+);
+```
+> **Please note:** More about foreign and primary keys can be looked up in the [Related Data](#related-data) chapter.
 
 ---
 
@@ -812,3 +846,4 @@ SELECT DISTINCT customer_name
 FROM sales
 ```
 ---
+## Related Data
