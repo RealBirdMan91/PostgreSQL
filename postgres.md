@@ -42,8 +42,8 @@
     - [Working with Dates](#working-with-dates)
 - [ORDER BY](#order-by)
 - [LIMIT](#limit)
-    - [OFFSET](#offset)
-- [DISTINCT](#distinct)    
+  - [OFFSET](#offset)
+- [DISTINCT](#distinct)
 - [Related Data](#related-data)
 
 ---
@@ -372,9 +372,9 @@ CREATE TABLE unicorns(
 ---
 
 ## Foreign Keys
+
 Foreign keys are used to ensure relationships between one or more tables.<br>
 This can be achieved using the `REFERENCES` keyword followed by the desired table name.
-
 
 ### **Unicorns:**
 
@@ -406,6 +406,7 @@ CREATE TABLE locations (
     lng INTEGER NOT NULL
 );
 ```
+
 > **Please note:** More about foreign and primary keys can be looked up in the [Related Data](#related-data) chapter.
 
 ---
@@ -805,22 +806,29 @@ WHERE (date_fulfilled - date_created )<= 5
 ## ORDER BY
 
 The keywords `ORDER BY` can be used to sort records by a specific column order. he default is by ascending order, with the keyword `DESC` the order can be changed to descending.
+
 ```SQL
 SELECT *
 FROM sales
 WHERE date_fulfilled IS NOT NULL
 ORDER BY date_fulfilled DESC;
 ```
+
 Of course, `ORDER BY` can also be used to order by a certain string. In the example below alphabetically by the column customer_name.
+
 ```SQL
 SELECT *
 FROM sales
 WHERE date_fulfilled IS NOT NULL
 ORDER BY customer_name;
 ```
-___
+
+---
+
 ## Limit
+
 `ORDER BY` is also often used in connection with the `LIMIT` keyword. In the example below, only the three most recently completed sales are output.
+
 ```SQL
 SELECT *
 FROM sales
@@ -828,7 +836,9 @@ WHERE date_fulfilled IS NOT NULL
 ORDER BY date_fulfilled DESC
 LIMIT 3;
 ```
+
 ### OFFSET
+
 The keyword `OFFSET` is needed to skip a certain number of rows. This can be very useful for a pagination.
 
 ```SQL
@@ -838,15 +848,22 @@ WHERE date_fulfilled IS NOT NULL
 ORDER BY id
 LIMIT 5 OFFSET 3
 ```
+
 ---
-## DISTINCT  
+
+## DISTINCT
+
 The keyword `DISTINCT` is used for dropping all dublicates in the result set.
+
 ```SQL
 SELECT DISTINCT customer_name
 FROM sales
 ```
+
 ---
+
 ## Related Data
+
 As described in the previous chapters, it is possible to link several tables together. Via so-called `JOIN` the columns of the different tables can then be requested.
 
 ### **Unicorns:**
@@ -865,6 +882,21 @@ As described in the previous chapters, it is possible to link several tables tog
 | 2   | Sleepy Hollow | 55  | 199 |
 
 ```SQL
-SELECT DISTINCT customer_name
-FROM sales
+SELECT u.name, u.age, l.location
+FROM unicorns AS u
+INNER JOIN locations AS l ON u.location_id = l.id;
 ```
+
+### **Merged Data:**
+
+| u.name      | u.age |    l.location |
+| ----------- | :---: | ------------: |
+| Friendcorn  |  175  |  Strange Town |
+| Lazycorn    |  957  | Sleepy Hollow |
+| Strangecorn |   5   |  Strange Town |
+
+In the example above the `JOIN` keyword was used to query different tables. This is possible because location_id in the unicorns table refers to the primary key of the location table.
+
+The `AS` keyword was used to avoid a possible name-clash in the respective columns.
+
+
