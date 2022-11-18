@@ -45,6 +45,7 @@
   - [OFFSET](#offset)
 - [DISTINCT](#distinct)
 - [Related Data](#related-data)
+    - [Data Normalization](#data-normalization)
 
 ---
 
@@ -900,4 +901,13 @@ In the example above the `JOIN` keyword was used to query different tables. This
 The `AS` keyword was used to avoid a possible name-clash in the respective columns.
 
 ---
+## Data Normalization
+Data Normalization is a concept that reduces data redundancy and increases data minimality. The goal is to split composite and grouped data into multiple, independent values.
+
+**Example:** Let's assume a user table, in which the column full_name exists. In this column we cannot assume that data values are always stored in the same order. Is the first name in the first or second place? Are first and last name separated by a comma?
+A better approach in terms of data normalization would be to create two columns, one for the first name and one for the last name.
+
+Equally important for Data Normalization is to split data items across multiple tables. 
+
+**Example:** Let's assume that the table user also has an address column. According to the principle in the example above, the address column would have to be split into postal code, city, street, house number. Now we can assume that address is a separate table. This can be linked to the column in the user table at any time using a foreign key.
 
