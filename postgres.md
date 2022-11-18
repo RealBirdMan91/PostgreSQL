@@ -921,3 +921,8 @@ Equally important for Data Normalization is to split data items across multiple 
 There are six forms of normalization, but these are very theoretical. Therefore, in this chapter they are converted into simple and practical rules.
 
 **The six normalization forms can be viewed [here](https://www.guru99.com/database-normalization.html) if you are interested.**
+
+**Simple Rules:**
+1. Avoid mixing data entities in the same table.
+2. Avoid multiple values in a single table cell.
+3. Try to avoid splitting basic data across dozens of tables. (Dont't overengineer)
