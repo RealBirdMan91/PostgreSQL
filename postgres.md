@@ -911,3 +911,7 @@ Equally important for Data Normalization is to split data items across multiple 
 
 **Example:** Let's assume that the table user also has an address column. According to the principle in the example above, the address column would have to be split into postal code, city, street, house number. Now we can assume that address is a separate table. This can be linked to the column in the user table at any time using a foreign key.
 
+
+**Note when to work on Data Normalization:**
+1. if columns in a table use the same prefix (address_number, address_street...).
+2. when several fields contain the same records.
