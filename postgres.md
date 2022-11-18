@@ -864,7 +864,7 @@ FROM sales
 
 ## Related Data
 
-As described in the previous chapters, it is possible to link several tables together. Via so-called `JOIN` the columns of the different tables can then be requested.
+As described in the previous chapters, it is possible to link several tables together. Via the so-called `JOIN` keyword the columns of the different tables can then be requested.
 
 ### **Unicorns:**
 
