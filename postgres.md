@@ -46,6 +46,7 @@
 - [DISTINCT](#distinct)
 - [Related Data](#related-data)
     - [Data Normalization](#data-normalization)
+    - [Forms of Data Normalization](#forms-of-data-normalization)
 
 ---
 
@@ -915,3 +916,8 @@ Equally important for Data Normalization is to split data items across multiple 
 **Note when to work on Data Normalization:**
 1. if columns in a table use the same prefix (address_number, address_street...).
 2. when several fields contain the same records.
+---
+## Forms of Data Normalization
+There are six forms of normalization, but these are very theoretical. Therefore, in this chapter they are converted into simple and practical rules.
+
+**The six normalization forms can be viewed [here](https://www.guru99.com/database-normalization.html) if you are interested.**
