@@ -18,4 +18,3 @@ CREATE TABLE unicorns (
     unicorn_personality personality NOT NULL,
     location_id INTEGER NOT NULL REFERENCES locations (id)
 );
-

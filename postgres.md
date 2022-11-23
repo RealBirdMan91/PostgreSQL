@@ -926,3 +926,4 @@ There are six forms of normalization, but these are very theoretical. Therefore,
 1. Avoid mixing data entities in the same table.
 2. Avoid multiple values in a single table cell.
 3. Try to avoid splitting basic data across dozens of tables. (Dont't overengineer)
+---
