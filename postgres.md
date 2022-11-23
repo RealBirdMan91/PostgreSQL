@@ -807,7 +807,7 @@ WHERE (date_fulfilled - date_created )<= 5
 
 ## ORDER BY
 
-The keywords `ORDER BY` can be used to sort records by a specific column order. he default is by ascending order, with the keyword `DESC` the order can be changed to descending.
+The keywords `ORDER BY` can be used to sort records by a specific column order. The default is by ascending order, with the keyword `DESC` the order can be changed to descending.
 
 ```SQL
 SELECT *
