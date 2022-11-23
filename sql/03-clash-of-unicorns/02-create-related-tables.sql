@@ -1,13 +1,13 @@
 CREATE TYPE u_status AS ENUM ('warrior', 'worker', 'magical_one');
 CREATE TYPE personality AS ENUM ('sleepy', 'greedy', 'lazy', 'aggressive', 'funny', 'cuddly', 'hyperactive', 'grumpy');
-CREATE TYPE area AS ENUM ('Mushroom forest', 'sugar mountains', 'rainbow mansions', 'cotton candy clouds', 'gummy worms caves');
+CREATE TYPE area AS ENUM ('Mushroom forest', 'sugar mountains', 'Rainbow dimming', 'cotton candy clouds', 'gummy worms caves');
 
 
 CREATE TABLE locations (
     id SERIAL PRIMARY KEY,
     area_name VARCHAR(300) NOT NULL,
-    lat INTEGER NOT NULL,
-    lng INTEGER NOT NULL,
+    lat INTEGER(5,2) NOT NULL,
+    lng INTEGER(5,2) NOT NULL,
     area_type area
 );
 

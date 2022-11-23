@@ -187,7 +187,7 @@ In an ENUM you can specify which concrete text values are allowed. For example: 
 
 ## Numeric Types
 
-All Numeric Types for PostgreSQL can be read [here](https://www.postgresql.org/docs/current/datatype-numeric.html). However, the most important ones are **SMALLINT** and **INTEGER**. As well as **DECIMAL** and **NUMERIC**.
+All Numeric Types for PostgreSQL can be read [here](https://www.postgresql.org/docs/current/datatype-numeric.html). However, the most important ones are `SMALLINT` and `INTEGER`. As well as `DECIMAL` and `NUMERIC`.
 
 **SMALLINT** and **INTEGER** are numbers without decimal places.
 
