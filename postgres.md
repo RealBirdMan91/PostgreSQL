@@ -52,6 +52,7 @@
         - [Combining Multiple Joins](#combining-multiple-joins)
         - [Filtering](#filtering)
         - [Left Join](#left-join)
+        - [Right Join](#right-join)
 
 ---
 
@@ -1012,8 +1013,17 @@ INNER JOIN locations AS l ON u.location_id = l.id;
 ```
 A `LEFT JOIN` on the other hand refers to the left table as a whole. In the example below, this is locations. The column values like c.city_name, and c.population are then filled. Column values that cannot be filled because they do not reference another table are set to `NULL`.
 ```SQL
-SELECT c.city_name, c.population, l.area_name, lat
+SELECT c.city_name, c.population, l.area_name, l.lat
 FROM locations AS l
 LEFT JOIN cities AS c ON l.city_id = c.id
 ```
+---
+## Right Join
 
+In reality, right joins are used rather rarely, this is because all right joins can be replaced by a left join. A right join is simply the opposite of a left join. An example can be found below.
+
+```SQL
+SELECT c.city_name, c.population, l.area_name, l.lat
+FROM cities AS c
+RIGHT JOIN locations AS l ON l.city_id = c.id
+```

@@ -16,7 +16,7 @@
 --FROM unicorns AS U
 --INNER JOIN locations AS l ON u.location_id = l.id;
 
-SELECT c.city_name, c.population, l.area_name, lat
+SELECT c.city_name, c.population, l.area_name, l.lat
 FROM locations AS l
 LEFT JOIN cities AS c ON l.city_id = c.id
 
