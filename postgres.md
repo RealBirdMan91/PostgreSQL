@@ -213,6 +213,14 @@ All Numeric Types for PostgreSQL can be read [here](https://www.postgresql.org/d
 
 **REAL** and **DOUBLE** are the same then DECIMAL or NUMERIC. The difference is, that **REAL** and **DOUBLE** have variable-precision that means they are inexact. But therefore much faster performance.
 
+```SQL
+CREATE TABLE locations (
+    id SERIAL PRIMARY KEY,
+    area_name VARCHAR(300) NOT NULL,
+    lat NUMERIC(5,2) NOT NULL,
+    lng NUMERIC(5,2) NOT NULL -- Maximum five characters and two of them in the comma area
+);
+```
 ---
 
 ## Date Types
