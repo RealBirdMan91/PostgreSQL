@@ -183,6 +183,18 @@ The character types can be chosen between **CHAR(X)**, **VARCHAR(X)** and **TEXT
 Another special character type is the **ENUM**.
 In an ENUM you can specify which concrete text values are allowed. For example: Mr | Mrs | Mx
 
+```SQL
+CREATE TYPE unicorn_status AS ENUM ('warrior', 'worker', 'magical_one');
+
+CREATE TABLE unicorns(
+    id SERIAL PRIMARY KEY,
+    unicorn_name VARCHAR(200),
+    unicorn_description TEXT,
+    unicorn_type unicorn_status
+);
+
+```
+
 ---
 
 ## Numeric Types
@@ -262,7 +274,7 @@ CREATE TABLE unicorns(
 
 The `NULL` value is needed if you want to indicate that there is no data for this field.
 
-**NULL VS 0**
+**NULL VS 0:**
 In the table below, Strangecorn has a value of `NULL` in the salary field. Let's assume that later on we want to calculate the average of all salaries. In this case, all records with the salary value of `NULL` would be excluded from the calculation.
 
 However, if a 0 was entered as the value, the record would be included in the calculation and thus falsify the result.
@@ -908,7 +920,7 @@ Data Normalization is a concept that reduces data redundancy and increases data 
 **Example:** Let's assume a user table, in which the column full_name exists. In this column we cannot assume that data values are always stored in the same order. Is the first name in the first or second place? Are first and last name separated by a comma?
 A better approach in terms of data normalization would be to create two columns, one for the first name and one for the last name.
 
-Equally important for Data Normalization is to split data items across multiple tables. 
+**Equally important for Data Normalization is to split data items across multiple tables.** 
 
 **Example:** Let's assume that the table user also has an address column. According to the principle in the example above, the address column would have to be split into postal code, city, street, house number. Now we can assume that address is a separate table. This can be linked to the column in the user table at any time using a foreign key.
 
