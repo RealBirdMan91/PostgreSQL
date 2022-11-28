@@ -47,6 +47,8 @@
 - [Related Data](#related-data)
     - [Data Normalization](#data-normalization)
     - [Forms of Data Normalization](#forms-of-data-normalization)
+    - [Joins](#joins)
+        - [Inner Join](#inner-join)
 
 ---
 
@@ -939,3 +941,33 @@ There are six forms of normalization, but these are very theoretical. Therefore,
 2. Avoid multiple values in a single table cell.
 3. Try to avoid splitting basic data across dozens of tables. (Dont't overengineer)
 ---
+## Joins
+Joins are needed to work with related data.
+A distinction is made here between different joins.
+
+1. inner join
+2. left join
+3. right join
+4. full outer join
+
+![Syntax](./images/joins.png)
+
+---
+
+## Inner Join
+An `INNER JOIN` is needed to get the intersection or data from two tables. These must be connected to each other, for example, via a foreign key.
+
+```SQL
+SELECT * FROM unicorns
+INNER JOIN locations ON unicorns.location_id = locations.id;
+```
+
+In the example above the columns of locations and unicorns are requested via an `INNER JOIN`. To indicate the relationship between the two tables, the `ON` keyword is required. Behind this keyword it is indicated that the location_id from the unicorns table is linked with the id from the locations table via foreign key. The dot notation is needed to indicate which table it is. Without this it would not be clear whether the id from unicorns or locations is meant.
+
+```SQL
+SELECT  u.unicorn_name, u.unicorn_status, l.area_name
+FROM unicorns AS U
+INNER JOIN locations AS l ON u.location_id = l.id;
+```
+
+To save characters, aliases can be used. This works via the `AS` keyword followed by the desired alias name.
