@@ -50,6 +50,7 @@
     - [Joins](#joins)
         - [Inner Join](#inner-join)
         - [Combining Multiple Joins](#combining-multiple-joins)
+        - [Filtering](#filtering)
 
 ---
 
@@ -983,3 +984,18 @@ FROM unicorns AS U
 INNER JOIN locations AS l ON u.location_id = l.id
 INNER JOIN cities AS c ON l.city_id = c.id;
 ```
+---
+## Filtering
+Joins can also work with a where clause as a filter. In the example below, only records are output where the population is below 9000 and the latitude starts with a 5.
+
+> `::text` can be used to cast a number into a string.
+
+```SQL
+SELECT  u.unicorn_name, u.unicorn_status, l.area_name, c.city_name, c.population
+FROM unicorns AS U
+INNER JOIN locations AS l ON u.location_id = l.id
+INNER JOIN cities AS c ON l.city_id = c.id
+WHERE c.population >= 9000 AND l.lat::text LIKE '5%'
+ORDER BY u.unicorn_name;
+```
+---
