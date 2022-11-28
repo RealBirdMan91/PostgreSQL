@@ -14,7 +14,7 @@ CREATE TABLE locations (
     area_name VARCHAR(300) NOT NULL,
     lat NUMERIC(5,2) NOT NULL,
     lng NUMERIC(5,2) NOT NULL,
-    city_id INTEGER NOT NULL REFERENCES cities (id),
+    city_id INTEGER REFERENCES cities (id) DEFAULT NULL,
     area_type area
 );
 

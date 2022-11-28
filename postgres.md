@@ -51,6 +51,7 @@
         - [Inner Join](#inner-join)
         - [Combining Multiple Joins](#combining-multiple-joins)
         - [Filtering](#filtering)
+        - [Left Join](#left-join)
 
 ---
 
@@ -999,3 +1000,20 @@ WHERE c.population >= 9000 AND l.lat::text LIKE '5%'
 ORDER BY u.unicorn_name;
 ```
 ---
+
+## Left Join
+To understand left joins, two new records are created in the locations table with a null value for city_id. An example can be found [here](./sql/03-clash-of-unicorns/05-left-join.sql) <br>
+As in the previous chapter, an `INNER JOIN` only returns rows that have a location_id. So it takes the intersection.
+
+```SQL
+SELECT u.unicorn_name, u.unicorn_status, l.area_name
+FROM unicorns AS U
+INNER JOIN locations AS l ON u.location_id = l.id;
+```
+A `LEFT JOIN` on the other hand refers to the left table as a whole. In the example below, this is locations. The column values like c.city_name, and c.population are then filled. Column values that cannot be filled because they do not reference another table are set to `NULL`.
+```SQL
+SELECT c.city_name, c.population, l.area_name, lat
+FROM locations AS l
+LEFT JOIN cities AS c ON l.city_id = c.id
+```
+
