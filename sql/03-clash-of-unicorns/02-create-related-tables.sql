@@ -6,8 +6,8 @@ CREATE TYPE area AS ENUM ('Mushroom forest', 'sugar mountains', 'Rainbow dimming
 CREATE TABLE locations (
     id SERIAL PRIMARY KEY,
     area_name VARCHAR(300) NOT NULL,
-    lat INTEGER(5,2) NOT NULL,
-    lng INTEGER(5,2) NOT NULL,
+    lat NUMERIC(5,2) NOT NULL,
+    lng NUMERIC(5,2) NOT NULL,
     area_type area
 );
 
