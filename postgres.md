@@ -49,6 +49,7 @@
     - [Forms of Data Normalization](#forms-of-data-normalization)
     - [Joins](#joins)
         - [Inner Join](#inner-join)
+        - [Combining Multiple Joins](#combining-multiple-joins)
 
 ---
 
@@ -971,3 +972,14 @@ INNER JOIN locations AS l ON u.location_id = l.id;
 ```
 
 To save characters, aliases can be used. This works via the `AS` keyword followed by the desired alias name.
+
+---
+
+## Combining Multiple Joins
+An SQL statement may contain not only one but several joins. This is needed if, for example, data from several tables are required. An example can be found below.
+```SQL
+SELECT  u.unicorn_name, u.unicorn_status, l.area_name, c.city_name, c.population
+FROM unicorns AS U
+INNER JOIN locations AS l ON u.location_id = l.id
+INNER JOIN cities AS c ON l.city_id = c.id;
+```
