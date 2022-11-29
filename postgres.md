@@ -53,6 +53,10 @@
     - [Filtering](#filtering)
     - [Left Join](#left-join)
     - [Right Join](#right-join)
+   - [Data Relationships](#data-relationships)
+    - [One to Many](#one-to-many)
+    - [Many to Many](#many-to-many)
+    - [One to One](#one-to-one)
 
 ---
 
@@ -1059,3 +1063,21 @@ RIGHT JOIN locations AS l ON l.city_id = c.id
 ```
 
 ---
+## Data Relationships
+Relationships between data can be classified into three categories (One-to-Many, Many-to-Many and One-to-One). These categories describe the relationship between the records in different tables.
+
+## One to Many
+One-to-Many means, that one record in a table (A) has one or many related records in table (B).
+
+> **Example:** An unicorn belongs to one unicorn herd<br> but a unicorn herd has many unicorns.
+
+## Many to Many
+Many-to-Many means, that one record in table (A) has one or many related tables in table (B) - and vice versa.
+
+
+> **Example:** An unicorn has many unicorn_friend<br> and every unicorn_friend has multiple unicorns.
+
+## One to One
+One-to-One means, that one record in table (A) belongs to exactly one record in table (B) - and vice versa.
+
+> **Example:** An unicorn has one unique super_power<br> and one super_power belongs to exact one unicorn 
