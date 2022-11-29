@@ -1064,7 +1064,8 @@ RIGHT JOIN locations AS l ON l.city_id = c.id
 
 ---
 ## Data Relationships
-Relationships between data can be classified into three categories (One-to-Many, Many-to-Many and One-to-One). These categories describe the relationship between the records in different tables.
+Relationships between data can be classified into three categories (One-to-Many, Many-to-Many and One-to-One). These categories describe the relationship between the records in different tables.<br>
+**A great example can be taken from [here](./sql/04-office/)**
 
 ## One to Many
 One-to-Many means, that one record in a table (A) has one or many related records in table (B).
