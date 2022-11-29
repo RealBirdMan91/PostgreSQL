@@ -4,7 +4,7 @@ CREATE TABLE employees (
     last_name VARCHAR(200) NOT NULL,
     birthdate DATE NOT NULL,
     email VARCHAR(200) UNIQUE NOT NULL,
-    created_at DATE DEFAULT CURRENT_TIMESTAMP
+    created_at  TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE intranet_accounts (
