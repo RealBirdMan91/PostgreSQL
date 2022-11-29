@@ -39,6 +39,16 @@
             "name": "clash_of_unicorns",
             "database": "clash_of_unicorns",
             "username": "postgres"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "askForPassword": true,
+            "driver": "PostgreSQL",
+            "name": "office",
+            "database": "office",
+            "username": "postgres"
         }
     ]
 }

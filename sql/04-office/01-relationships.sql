@@ -1,0 +1,8 @@
+CREATE TABLE employees(
+    id SERIAL PRIMARY KEY,
+    first_name VARCHAR(200) NOT NULL,
+    last_name VARCHAR(200) NOT NULL,
+    birthdate DATE NOT NULL,
+    email VARCHAR(200) NOT NULL UNIQUE,
+    created_at DATE DATE DEFAULT CURRENT_TIMESTAMP,
+)
