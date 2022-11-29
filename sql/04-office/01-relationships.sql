@@ -1,6 +1,6 @@
 CREATE TABLE intranet_accounts (
     id SERIAL PRIMARY KEY,
-    email VARCHAR(200) REFERENCES employees (email) ON ,
+    email VARCHAR(200) REFERENCES employees (email) ON DELETE CASCADE,
     password VARCHAR(200) NOT NULL
 );
 
