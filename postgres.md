@@ -45,14 +45,14 @@
   - [OFFSET](#offset)
 - [DISTINCT](#distinct)
 - [Related Data](#related-data)
-    - [Data Normalization](#data-normalization)
-    - [Forms of Data Normalization](#forms-of-data-normalization)
-    - [Joins](#joins)
-        - [Inner Join](#inner-join)
-        - [Combining Multiple Joins](#combining-multiple-joins)
-        - [Filtering](#filtering)
-        - [Left Join](#left-join)
-        - [Right Join](#right-join)
+  - [Data Normalization](#data-normalization)
+  - [Forms of Data Normalization](#forms-of-data-normalization)
+  - [Joins](#joins)
+    - [Inner Join](#inner-join)
+    - [Combining Multiple Joins](#combining-multiple-joins)
+    - [Filtering](#filtering)
+    - [Left Join](#left-join)
+    - [Right Join](#right-join)
 
 ---
 
@@ -221,6 +221,7 @@ CREATE TABLE locations (
     lng NUMERIC(5,2) NOT NULL -- Maximum five characters and two of them in the comma area
 );
 ```
+
 ---
 
 ## Date Types
@@ -928,32 +929,41 @@ In the example above the `JOIN` keyword was used to query different tables. This
 The `AS` keyword was used to avoid a possible name-clash in the respective columns.
 
 ---
+
 ## Data Normalization
+
 Data Normalization is a concept that reduces data redundancy and increases data minimality. The goal is to split composite and grouped data into multiple, independent values.
 
 **Example:** Let's assume a user table, in which the column full_name exists. In this column we cannot assume that data values are always stored in the same order. Is the first name in the first or second place? Are first and last name separated by a comma?
 A better approach in terms of data normalization would be to create two columns, one for the first name and one for the last name.
 
-**Equally important for Data Normalization is to split data items across multiple tables.** 
+**Equally important for Data Normalization is to split data items across multiple tables.**
 
 **Example:** Let's assume that the table user also has an address column. According to the principle in the example above, the address column would have to be split into postal code, city, street, house number. Now we can assume that address is a separate table. This can be linked to the column in the user table at any time using a foreign key.
 
-
 **Note when to work on Data Normalization:**
+
 1. if columns in a table use the same prefix (address_number, address_street...).
 2. when several fields contain the same records.
+
 ---
+
 ## Forms of Data Normalization
+
 There are six forms of normalization, but these are very theoretical. Therefore, in this chapter they are converted into simple and practical rules.
 
 **The six normalization forms can be viewed [here](https://www.guru99.com/database-normalization.html) if you are interested.**
 
 **Simple Rules:**
+
 1. Avoid mixing data entities in the same table.
 2. Avoid multiple values in a single table cell.
 3. Try to avoid splitting basic data across dozens of tables. (Dont't overengineer)
+
 ---
+
 ## Joins
+
 Joins are needed to work with related data.
 A distinction is made here between different joins.
 
@@ -967,6 +977,7 @@ A distinction is made here between different joins.
 ---
 
 ## Inner Join
+
 An `INNER JOIN` is needed to get the intersection or data from two tables. These must be connected to each other, for example, via a foreign key.
 
 ```SQL
@@ -987,15 +998,20 @@ To save characters, aliases can be used. This works via the `AS` keyword followe
 ---
 
 ## Combining Multiple Joins
+
 An SQL statement may contain not only one but several joins. This is needed if, for example, data from several tables are required. An example can be found below.
+
 ```SQL
 SELECT  u.unicorn_name, u.unicorn_status, l.area_name, c.city_name, c.population
 FROM unicorns AS U
 INNER JOIN locations AS l ON u.location_id = l.id
 INNER JOIN cities AS c ON l.city_id = c.id;
 ```
+
 ---
+
 ## Filtering
+
 Joins can also work with a where clause as a filter. In the example below, only records are output where the population is below 9000 and the latitude starts with a 5.
 
 > `::text` can be used to cast a number into a string.
@@ -1008,9 +1024,11 @@ INNER JOIN cities AS c ON l.city_id = c.id
 WHERE c.population >= 9000 AND l.lat::text LIKE '5%'
 ORDER BY u.unicorn_name;
 ```
+
 ---
 
 ## Left Join
+
 To understand left joins, two new records are created in the locations table with a null value for city_id. An example can be found [here](./sql/03-clash-of-unicorns/05-left-join.sql) <br>
 As in the previous chapter, an `INNER JOIN` only returns rows that have a location_id. So it takes the intersection.
 
@@ -1019,13 +1037,17 @@ SELECT u.unicorn_name, u.unicorn_status, l.area_name
 FROM unicorns AS U
 INNER JOIN locations AS l ON u.location_id = l.id;
 ```
+
 A `LEFT JOIN` on the other hand refers to the left table as a whole. In the example below, this is locations. The column values like c.city_name, and c.population are then filled. Column values that cannot be filled because they do not reference another table are set to `NULL`.
+
 ```SQL
 SELECT c.city_name, c.population, l.area_name, l.lat
 FROM locations AS l
 LEFT JOIN cities AS c ON l.city_id = c.id
 ```
+
 ---
+
 ## Right Join
 
 In reality, right joins are used rather rarely, this is because all right joins can be replaced by a left join. A right join is simply the opposite of a left join. An example can be found below.
@@ -1035,4 +1057,5 @@ SELECT c.city_name, c.population, l.area_name, l.lat
 FROM cities AS c
 RIGHT JOIN locations AS l ON l.city_id = c.id
 ```
+
 ---
