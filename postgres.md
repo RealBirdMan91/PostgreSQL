@@ -1081,3 +1081,6 @@ Many-to-Many means, that one record in table (A) has one or many related tables 
 One-to-One means, that one record in table (A) belongs to exactly one record in table (B) - and vice versa.
 
 > **Example:** A unicorn has one unique super_power<br> and one super_power belongs to exact one unicorn 
+
+---
+
