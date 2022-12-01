@@ -58,6 +58,9 @@
     - [Many to Many](#many-to-many)
     - [One to One](#one-to-one)
 
+
+> In the next step we will use the Prisma ORM to simplify working with relational databases. Documentation on Prisma can be found [here](https://github.com/RealBirdMan91/Prisma).
+
 ---
 
 ## What is a RDBMS
