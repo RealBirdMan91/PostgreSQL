@@ -105,7 +105,6 @@ An acurate list of all Keywords can be found [here](https://www.postgresql.org/d
 
 ![Syntax](./images/syntax.jpg)
 
-Syntax Regeln:
 Syntax rules:
 
 1. SQL statements must end with a semicolon (if multiple statements are included in the same command).
